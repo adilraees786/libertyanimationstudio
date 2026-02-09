@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../assets/images/logo.png";
+import Logo from "../assets/images/new-logo.png";
 
 const Footer = () => {
   const quickLinks = [
@@ -26,7 +26,7 @@ const Footer = () => {
               <img
                 src={Logo}
                 alt="Reelax Media Logo"
-                className="h-10 w-auto object-contain"
+                className="h-18 w-auto object-contain"
               />
               <h2 className="text-[20px] md:text-[40px] font-black tracking-[2px] uppercase  transition-colors">
                 Liberty{" "}

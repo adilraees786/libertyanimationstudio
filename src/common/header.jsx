@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Logo from "../assets/images/logo.png";
+import Logo from "../assets/images/new-logo.png";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,20 +38,20 @@ const Header = () => {
           scrolled ? "bg-black/90 backdrop-blur-lg py-3" : "bg-transparent py-4"
         }`}
       >
-        <div className="max-w-6xl mx-auto px-6 lg:px-12 flex items-center justify-between">
+        <div className=" mx-auto px-6 lg:px-12 flex items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="#home" className="block outline-none">
               <img
                 src={Logo}
                 alt="Reelax Media Logo"
-                className="h-10 md:h-12 w-auto object-contain"
+                className="h-12 md:h-20 w-auto object-contain"
               />
             </a>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center bg-[#232222] border border-[var(--primary-text-color)] border-dashed border-opacity-60 rounded-full px-10 py-3 shadow-[0_0_20px_rgba(0,255,240,0.15)] hover:border-opacity-100 transition-all duration-300">
+          <nav className="hidden md:flex items-center bg-[#232222] border border-[var(--primary-text-color)] border-dashed border-opacity-60 rounded-full px-10 py-3 shadow-[0_0_20px_rgba(0,255,240,0.15)] hover:border-opacity-100 transition-all duration-300 m-auto">
             <ul className="flex items-center gap-10">
               {navLinks.map((link) => (
                 <li key={link.name}>
@@ -92,7 +92,7 @@ const Header = () => {
             onClick={() => setIsOpen(false)}
             className="outline-none"
           >
-            <img src={Logo} alt="Logo" className="h-8 w-auto object-contain" />
+            <img src={Logo} alt="Logo" className="h-12 w-auto object-contain" />
           </a>
 
           <button
