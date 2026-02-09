@@ -159,7 +159,7 @@ const Packages = () => {
                 motion graphics & fancy effects.
               </p>
 
-              <button className="w-full py-4 rounded-full bg-white text-black font-bold uppercase tracking-[2px] transition-all duration-300 hover:bg-black hover:text-white">
+              <button className="w-full py-4 rounded-full bg-white text-black font-black uppercase tracking-[2px] transition-all duration-300 hover:bg-black hover:text-white">
                 GET STARTED
               </button>
             </div>
@@ -194,7 +194,7 @@ const Packages = () => {
               <ShieldCheck size={28} className="text-[var(--primary-text-color)]" />
             </div>
             <div>
-              <h4 className="text-[16px] md:text-[22px] font-black text-[var(--text-color)] mb-3  tracking-tight">
+              <h4 className="text-[16px] md:text-[22px] font-bold text-[var(--text-color)] mb-3  tracking-tight">
                 No-Risk Guarantee
               </h4>
               <p className="text-[var(--text-color)] text-[15px] font-normal leading-relaxed max-w-md">

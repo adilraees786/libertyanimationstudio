@@ -43,7 +43,7 @@ const HowWeAre = () => {
               mismatch. Delays. Sound familiar?
             </p>
 
-            <p className="text-[var(--primary-text-color)] font-bold text-xl">
+            <p className="text-[var(--primary-text-color)] font-normal text-xl">
               That's where we come in.
             </p>
 
@@ -84,7 +84,7 @@ const HowWeAre = () => {
           </div>
 
           <div className="pt-4">
-            <button className="bg-[var(--primary-text-color)] text-[var(--text-color)] px-6 py-3 rounded-full font-bold uppercase tracking-[2px] hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(#E08A00,0.4)]">
+            <button className="bg-[var(--primary-text-color)] text-[var(--text-color)] px-6 py-3 rounded-full font-black uppercase tracking-[2px] hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(#E08A00,0.4)]">
               GET MY 30 EDITS
             </button>
           </div>

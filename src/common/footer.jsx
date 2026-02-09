@@ -28,7 +28,7 @@ const Footer = () => {
                 alt="Reelax Media Logo"
                 className="h-10 w-auto object-contain"
               />
-              <h2 className="text-[30px] md:text-[40px] font-bold tracking-[2px] uppercase group-hover:text-[var(--primary-text-color)] transition-colors">
+              <h2 className="text-[30px] md:text-[40px] font-black tracking-[2px] uppercase  transition-colors">
                 REELAX{" "}
                 <span className="text-[var(--primary-text-color)]">MEDIA</span>
               </h2>
@@ -60,15 +60,15 @@ const Footer = () => {
 
           {/* Quick Links Section */}
           <div className="flex flex-col space-y-6">
-            <h3 className="text-xl font-bold tracking-[2px] uppercase">
+            <h3 className="text-xl font-black tracking-[2px] uppercase">
               QUICK LINKS
             </h3>
-            <ul className="grid grid-cols-1 gap-3">
+            <ul className="grid grid-cols-1 gap-1">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-[var(--text-color)] hover:text-[#00FFF0] transition-colors duration-300 text-sm md:text-base"
+                    className="text-[var(--text-color)] hover:text-[var(--primary-text-color)] transition-colors duration-300 text-sm md:text-base"
                   >
                     {link.name}
                   </a>

@@ -16,13 +16,8 @@ const HeroSection = () => {
         </h1>
 
         {/* Description Subtext */}
-        <p className="text-[var(--text-color)] text-lg md:text-2xl font-medium max-w-2xl mx-auto mb-12 leading-relaxed tracking-[0.5px]">
-          We craft, <span className="text-[var(--text-color)] font-bold">cut,</span> and
-          polish
-          <span className="text-[var(--text-color)] font-bold px-1">
-            30 videos in 30 days
-          </span>
-          so you never miss momentum.
+        <p className="text-[var(--text-color)] text-lg md:text-2xl font-normal max-w-2xl mx-auto mb-12 leading-relaxed tracking-[0.5px]">
+          We craft, <span className="font-bold">cut,</span> and polish 30 videos in 30 days so you never miss momentum.
         </p>
 
         {/* CTA Section with Arrow */}
@@ -37,7 +32,7 @@ const HeroSection = () => {
   bg-[var(--primary-text-color)] 
   border-2 border-[var(--primary-text-color)] 
   border-opacity-60 
-  rounded-full 
+  rounded-full font-black 
   transition-all duration-300">
 
   <span className="text-[var(--text-color)] 

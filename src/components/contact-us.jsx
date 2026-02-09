@@ -192,7 +192,7 @@ const ContactUs = () => {
               <div className="flex justify-center pt-10">
                 <button
                   type="submit"
-                  className="px-12 py-3 rounded-full border-2 border-[var(--primary-text-color)] text-[var(--primary-text-color)] font-bold uppercase tracking-[2px] transition-all duration-300 hover:bg-[var(--primary-text-color)] hover:text-[var(--text-color)] active:scale-95 text-sm"
+                  className="px-12 py-3 rounded-full border-2 border-[var(--primary-text-color)] text-[var(--primary-text-color)] font-black uppercase tracking-[2px] transition-all duration-300 hover:bg-[var(--primary-text-color)] hover:text-[var(--text-color)] active:scale-95 text-sm"
                 >
                   SUBMIT NOW!
                 </button>
