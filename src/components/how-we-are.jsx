@@ -24,7 +24,7 @@ const HowWeAre = () => {
   ];
 
   return (
-    <section id="process" className="w-full bg-black py-20 px-2 md:px-10 md:px-16 lg:px-24 text-[var(--text-color)] overflow-hidden">
+    <section id="process" className="w-full  md:py-20 py-0 px-2 md:px-10 md:px-16 lg:px-24 text-[var(--text-color)] overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12  xl:gap-20 items-start  mx-[0px] md:mx-[40px]">
         {/* Left Content Column */}
         <div className="flex flex-col space-y-8  ">

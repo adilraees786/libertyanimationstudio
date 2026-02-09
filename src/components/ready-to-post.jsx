@@ -79,7 +79,7 @@ const ReadyToPost = () => {
   const [activeVideoId, setActiveVideoId] = React.useState(null);
 
   return (
-    <section className="py-20  text-[--primary-text-color] overflow-hidden">
+    <section className=" md:py-20 py-0  text-[--primary-text-color] overflow-hidden">
       <div className="container mx-auto px-4 max-w-[800px]">
         {/* Header Section */}
         <div className="text-center mb-16 relative">

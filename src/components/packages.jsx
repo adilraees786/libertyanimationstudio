@@ -23,7 +23,7 @@ const Packages = () => {
   ];
 
   return (
-    <section id="services" className="py-20 px-4 md:px-0">
+    <section id="services" className="md:py-20 py-0 px-4">
       <div className="container mx-auto max-w-[900px]">
         {/* Header Section */}
         <div className="text-center mb-16 space-y-2">

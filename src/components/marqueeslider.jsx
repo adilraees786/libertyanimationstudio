@@ -18,7 +18,7 @@ const MarqueeSlider = () => {
   const displayLogos = [...logos, ...logos, ...logos, ...logos];
 
   return (
-    <div className="w-full bg-black py-20 overflow-hidden">
+    <div className="w-full py-20 overflow-hidden">
       {/* Newsletter Headline Section */}
       <div className="container mx-auto px-6 text-center mb-16">
         <h2 className="flex flex-col">
@@ -32,7 +32,7 @@ const MarqueeSlider = () => {
       </div>
 
       {/* Infinite Logo Marquee */}
-      <div className="relative flex overflow-hidden group mx-[0px] md:mx-[200px]">
+      <div className="relative flex overflow-hidden group mx-[0px] md:mx-[100px]">
         <div className="flex animate-marquee gap-12 md:gap-24 items-center">
           {displayLogos.map((logo, index) => (
             <div key={index} className="flex-shrink-0 cursor-pointer">

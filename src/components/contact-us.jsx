@@ -13,7 +13,7 @@ const ContactUs = () => {
   });
 
   return (
-    <section id="contact" className="py-20 px-4 overflow-hidden">
+    <section id="contact" className="md:py-20 py-0 px-4 overflow-hidden">
       <div className="container mx-auto max-w-[1200px] flex flex-col lg:flex-row items-center lg:items-start gap-12 md:gap-40">
         {/* Left Side: Headline & Arrow */}
         <div className="lg:w-1/3 text-center lg:text-left pt-10 flex flex-col items-center lg:items-start relative">
