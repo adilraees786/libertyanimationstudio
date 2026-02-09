@@ -60,7 +60,6 @@ const VideoSlideContent = ({ item, isActive }) => {
         ref={videoRef}
         src={item.src}
         className="w-full h-full object-cover"
-        muted
         loop
         playsInline
       />
@@ -85,7 +84,10 @@ const VideoSlideContent = ({ item, isActive }) => {
 
 const Portfolio = () => {
   return (
-    <section id="portfolio" className="py-20  text-white min-h-screen flex flex-col items-center">
+    <section
+      id="portfolio"
+      className="py-20  text-white min-h-screen flex flex-col items-center"
+    >
       <div className="container mx-auto px-4 flex flex-col items-center">
         {/* Portfolio Badge */}
         <div className="inline-block px-10 py-1.5 border border-[var(--primary-text-color)] rounded-full mb-4">
@@ -163,8 +165,8 @@ const Portfolio = () => {
             </button>
           </div>
         </div>
-    
-{/* second section */}
+
+        {/* second section */}
         {/* Profile Section */}
         <div className="flex flex-col items-center mb-16 text-center px-4">
           <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden mb-5 ring-1 ring-white/10 p-0.5">
@@ -175,7 +177,7 @@ const Portfolio = () => {
             />
           </div>
           <h2 className="text-[30px] md:text-[40px] font-bold mb-1 tracking-tight">
-           Vijay Singh
+            Vijay Singh
           </h2>
           <p className="text-[var(--primary-text-color)] text-[20px] font-normal tracking-wider">
             100K+ Instagram Subscribers
