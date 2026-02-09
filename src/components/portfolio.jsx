@@ -8,7 +8,7 @@ import "swiper/css/navigation";
 
 import { Play, ChevronLeft, ChevronRight } from "lucide-react";
 
-import PortfolioArrow from "../assets/images/portfolio-arrow.svg";
+import PortfolioArrow from "../assets/images/portfolio-arrow.png";
 import ManImage from "../assets/images/man-image.svg";
 import ManImage2 from "../assets/images/man-image-02.svg";
 import portfolioVideo1 from "../assets/videos/portfolio-video-01.mp4";
@@ -106,20 +106,22 @@ const Portfolio = () => {
         </div>
 
         {/* Profile Section */}
-        <div className="flex flex-col items-center mb-16 text-center px-4">
-          <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden mb-5 ring-1 ring-white/10 p-0.5">
+        <div className="flex flex-row items-center gap-6 mb-16 text-left px-4">
+          <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden ring-1 ring-white/10 p-0.5">
             <img
               src={ManImage}
               alt="Daniel Iles"
               className="w-full h-full object-cover rounded-full"
             />
           </div>
-          <h2 className="text-[30px] md:text-[40px] font-bold mb-1 tracking-tight">
-            Daniel Iles
-          </h2>
-          <p className="text-[var(--primary-text-color)] text-[20px] font-normal tracking-wider">
-            829K+ YouTube Subscribers
-          </p>
+          <div className="flex flex-col">
+            <h2 className="text-[20px] md:text-[30px] font-bold uppercase tracking-tight leading-none text-white">
+              Daniel Iles
+            </h2>
+            <p className="text-[var(--primary-text-color)] text-[18px] md:text-[25px] font-medium tracking-wide mt-2">
+              829K+ YouTube Subscribers
+            </p>
+          </div>
         </div>
 
         {/* Video Slider Container */}
@@ -168,20 +170,22 @@ const Portfolio = () => {
 
         {/* second section */}
         {/* Profile Section */}
-        <div className="flex flex-col items-center mb-16 text-center px-4">
-          <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden mb-5 ring-1 ring-white/10 p-0.5">
+        <div className="flex flex-row items-center gap-6 mb-16 text-left px-4">
+          <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden ring-1 ring-white/10 p-0.5">
             <img
               src={ManImage2}
               alt="Vijay Singh"
               className="w-full h-full object-cover rounded-full"
             />
           </div>
-          <h2 className="text-[30px] md:text-[40px] font-bold mb-1 tracking-tight">
-            Vijay Singh
-          </h2>
-          <p className="text-[var(--primary-text-color)] text-[20px] font-normal tracking-wider">
-            100K+ Instagram Subscribers
-          </p>
+          <div className="flex flex-col">
+            <h2 className="text-[20px] md:text-[30px] font-bold uppercase tracking-tight leading-none text-white">
+              Vijay Singh
+            </h2>
+            <p className="text-[var(--primary-text-color)] text-[18px] md:text-[25px] font-medium tracking-wide mt-2">
+              100K+ Instagram Subscribers
+            </p>
+          </div>
         </div>
 
         {/* Video Slider Container */}

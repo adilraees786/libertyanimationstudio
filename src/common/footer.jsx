@@ -29,8 +29,8 @@ const Footer = () => {
                 className="h-10 w-auto object-contain"
               />
               <h2 className="text-[30px] md:text-[40px] font-black tracking-[2px] uppercase  transition-colors">
-                REELAX{" "}
-                <span className="text-[var(--primary-text-color)]">MEDIA</span>
+                Liberty{" "}
+                <span className="text-[var(--primary-text-color)]">Animation</span>
               </h2>
             </a>
 
@@ -81,7 +81,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="mt-16 flex justify-center md:justify-end">
           <p className="text-[var(--primary-text-color)] text-sm md:text-base tracking-[1px] font-medium">
-            ©Reelax Media 2025. All Rights Reserved
+            © Liberty Animation Studio 2025. All Rights Reserved
           </p>
         </div>
       </div>

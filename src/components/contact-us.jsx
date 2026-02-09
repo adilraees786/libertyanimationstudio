@@ -1,5 +1,5 @@
 import React from "react";
-import ContactArrow from "../assets/images/contact-us-arrow.svg";
+import ContactArrow from "../assets/images/contact-us-arrow.png";
 import Input from "../../reuseablecomponents/Input";
 import { ChevronDown } from "lucide-react";
 

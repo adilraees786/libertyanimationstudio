@@ -1,5 +1,5 @@
 import React from "react";
-import Arrow from "../assets/images/arrow.svg";
+import Arrow from "../assets/images/arrow.png";
 
 const HeroSection = () => {
   return (
@@ -17,7 +17,8 @@ const HeroSection = () => {
 
         {/* Description Subtext */}
         <p className="text-[var(--text-color)] text-lg md:text-2xl font-normal max-w-2xl mx-auto mb-12 leading-relaxed tracking-[0.5px]">
-          We craft, <span className="font-bold">cut,</span> and polish 30 videos in 30 days so you never miss momentum.
+          We craft, <span className="font-bold">cut,</span> and polish 30 videos
+          in 30 days so you never miss momentum.
         </p>
 
         {/* CTA Section with Arrow */}
@@ -28,20 +29,22 @@ const HeroSection = () => {
           </div>
 
           {/* Pill CTA Button */}
-      <button className="mt-10 relative group px-5 py-2 
+          <button
+            className="mt-10 relative group px-5 py-2 
   bg-[var(--primary-text-color)] 
   border-2 border-[var(--primary-text-color)] 
   border-opacity-60 
   rounded-full font-black 
-  transition-all duration-300">
-
-  <span className="text-[var(--text-color)] 
+  transition-all duration-300"
+          >
+            <span
+              className="text-[var(--text-color)] 
     group-hover:text-white 
-    text-lg font-bold tracking-[2px] uppercase">
-    GET 30 EDITS
-  </span>
-</button>
-
+    text-lg font-bold tracking-[2px] uppercase"
+            >
+              GET 30 EDITS
+            </span>
+          </button>
         </div>
       </div>
 
