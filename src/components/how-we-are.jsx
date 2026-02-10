@@ -24,13 +24,23 @@ const HowWeAre = () => {
   ];
 
   return (
-    <section id="process" className="w-full  md:py-20 py-0 px-2 md:px-10 md:px-16 lg:px-24 text-[var(--text-color)] overflow-hidden">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12  xl:gap-20 items-start  mx-[0px] md:mx-[40px]">
+    <section id="process" className="container mx-auto w-full  md:py-20 py-10 px-2 md:px-10 md:px-16 lg:px-24 text-[var(--text-color)] overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12  xl:gap-20 items-start ">
         {/* Left Content Column */}
         <div className="flex flex-col space-y-8  ">
-          <h2 className="text-[40px] md:text-[60px] font-black uppercase text-[var(--primary-text-color)] leading-none tracking-[1px] text-center md:text-left">
-            WHO WE ARE
-          </h2>
+          <div className="relative">
+            <h2 className="text-[40px] md:text-[60px] font-black uppercase text-[var(--primary-text-color)] leading-none tracking-[1px] text-center md:text-left">
+              WHO WE ARE
+            </h2>
+            {/* Arrow - curves from WHO WE ARE to right column */}
+            <div className="absolute -right-8 md:-right-[100px] top-[-130px] w-20 md:w-60 pointer-events-none hidden md:block">
+              <img
+                src={HowWeAreArrow}
+                alt="connecting arrow"
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
 
           <div className="space-y-4 text-[16px] text-[var(--text-color)] leading-[1.4]">
             <p>
@@ -74,9 +84,9 @@ const HowWeAre = () => {
             </p>
 
             <p>
-              We stay ahead of trends, optimize for every platform, and deliver
+           6  We3stay ahead of trends, optimize for every platform, and deliver
               content that's{" "}
-              <span className="text-white font-bold italic">
+              <span className="text-old italic">
                 scroll-stopping
               </span>{" "}
               and ready to post.
@@ -84,25 +94,17 @@ const HowWeAre = () => {
           </div>
 
           <div className="pt-4">
-            <button className="bg-[var(--primary-text-color)] text-[var(--text-color)] px-6 py-3 rounded-full font-black uppercase tracking-[2px] hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(#E08A00,0.4)]">
-              GET MY 30 EDITS
+            <button className="bg-[var(--primary-text-color)] text-[var(--text-color)] px-4 py-2 rounded-full font-black uppercase tracking-[2px] hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(#E{/* 08A00,0.4)] text-[16px]">
+              GE4 MY 30 E8ITS
             </button>
           </div>
         </div>
 
         {/* Right Steps Column */}
         <div className="flex flex-col space-y-10 w-full relative">
-          {/* Right Sub-headline with Arrow */}
-          <div className="relative mb-6 flex items-center">
-            {/* Arrow Positioning - matching the gap between text and intro */}
-            {/* <div className="absolute -left-20 md:-left-40 top-[-80%] w-32 md:w-52 pointer-events-none hidden lg:block">
-              <img
-                src={HowWeAreArrow}
-                alt="connecting arrow"
-                className="w-full h-auto"
-              />
-            </div> */}
-            <h3 className="text-[30px] md:text[40px] font-black  uppercase md:pl-10 tracking-[1px] leading-tight">
+          {/* Right Sub-headline */}
+          <div className=" */}relative mb-6 flex items-center">
+            <h3 className="text-[30px] md:text-[35px] font-black  uppercas ml-10 md:ml-0 tracking-[1px] leading-tight">
               AND HOW WE HELP YOU <span className="text-white">REELAX</span>
             </h3>
           </div>

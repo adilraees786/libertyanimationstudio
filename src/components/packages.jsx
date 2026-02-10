@@ -23,7 +23,7 @@ const Packages = () => {
   ];
 
   return (
-    <section id="services" className="md:py-20 py-0 px-4">
+    <section id="services" className="md:py-20 py-10 px-4">
       <div className="container mx-auto max-w-[900px]">
         {/* Header Section */}
         <div className="text-center mb-16 space-y-2">
@@ -59,7 +59,7 @@ const Packages = () => {
                   Starting From
                 </h5>
                 <div className="flex items-center gap-2">
-                  <span className="text-[30px] md:text-[60px] font-bold text-[var(--primary-text-color)]">
+                  <span className="text-[30px] md:text-[55px] font-bold text-[var(--primary-text-color)]">
                     $1000
                   </span>
                   <span className="text-[14px] text-[var(--text-color)] font-bold uppercase pt-4">
@@ -122,7 +122,7 @@ const Packages = () => {
                   Starting From
                 </h5>
                 <div className="flex items-center gap-3">
-                  <span className="text-[30px] md:text-[60px] font-bold text-[var(--text-color)]">
+                  <span className="text-[30px] md:text-[55px] font-bold text-[var(--text-color)]">
                     $2000
                   </span>
                   <span className="text-[14px] text-[var(--text-color)] font-bold uppercase pt-4">

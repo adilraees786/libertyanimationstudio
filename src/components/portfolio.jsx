@@ -15,8 +15,16 @@ import portfolioVideo1 from "../assets/videos/portfolio-video-01.mp4";
 import portfolioVideo2 from "../assets/videos/portfolio-video-02.mp4";
 import portfolioVideo3 from "../assets/videos/portfolio-video-03.mp4";
 import portfolioVideo4 from "../assets/videos/portfolio-video-04.mp4";
-
+// slider 1
 const videoData = [
+  { id: 1, src: portfolioVideo1 },
+  { id: 2, src: portfolioVideo2 },
+  { id: 3, src: portfolioVideo3 },
+  { id: 4, src: portfolioVideo4 },
+  { id: 5, src: portfolioVideo2 },
+];
+// slider 2
+const videoDataslidertwo = [
   { id: 1, src: portfolioVideo1 },
   { id: 2, src: portfolioVideo2 },
   { id: 3, src: portfolioVideo3 },
@@ -54,7 +62,7 @@ const VideoSlideContent = ({ item, isActive }) => {
         isActive
           ? "lg:scale-[1.15] scale-110 z-20 border-(--primary-text-color) opacity-100"
           : "scale-90 opacity-30 border-transparent blur-[1px]"
-      } w-full max-w-[320px] md:max-w-[400px] cursor-pointer group`}
+      } w-full max-w-[220px] md:max-w-[400px] cursor-pointer group mx-auto`}
     >
       <video
         ref={videoRef}
@@ -86,7 +94,7 @@ const Portfolio = () => {
   return (
     <section
       id="portfolio"
-      className="py-20  text-white min-h-screen flex flex-col items-center"
+      className="py-0 md:py-20  text-white min-h-screen flex flex-col items-center"
     >
       <div className="container mx-auto px-4 flex flex-col items-center">
         {/* Portfolio Badge */}
@@ -106,8 +114,8 @@ const Portfolio = () => {
         </div>
 
         {/* Profile Section */}
-        <div className="flex flex-row items-center gap-6 mb-16 text-left px-4">
-          <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden ring-1 ring-white/10 p-0.5">
+        <div className="flex flex-row items-center gap-4 mb-16 text-left px-4">
+          <div className="w-20 h-20 md:w-20 md:h-20 rounded-full overflow-hidden ring-1 ring-white/10 p-0.5">
             <img
               src={ManImage}
               alt="Daniel Iles"
@@ -118,7 +126,7 @@ const Portfolio = () => {
             <h2 className="text-[20px] md:text-[30px] font-bold uppercase tracking-tight leading-none text-white">
               Daniel Iles
             </h2>
-            <p className="text-[var(--primary-text-color)] text-[18px] md:text-[25px] font-medium tracking-wide mt-2">
+            <p className="text-[var(--primary-text-color)] text-[12px] md:text-[16px] font-medium tracking-wide mt-2">
               829K+ YouTube Subscribers
             </p>
           </div>
@@ -128,19 +136,19 @@ const Portfolio = () => {
         <div className="relative w-full max-w-[800px]">
           <Swiper
             modules={[Navigation]}
-            spaceBetween={20}
+            spaceBetween={24}
             slidesPerView={1.2}
             centeredSlides={true}
             loop={true}
             navigation={{
-              nextEl: ".swiper-button-next-custom",
-              prevEl: ".swiper-button-prev-custom",
+              nextEl: ".swiper-btn-next-one",
+              prevEl: ".swiper-btn-prev-one",
             }}
             breakpoints={{
               640: { slidesPerView: 2, spaceBetween: 30 },
               1024: { slidesPerView: 3, spaceBetween: 40 },
             }}
-            className="portfolio-swiper w-full pb-20!"
+            className="portfolio-swiper-one w-full pb-20!"
           >
             {videoData.map((item) => (
               <SwiperSlide
@@ -154,15 +162,15 @@ const Portfolio = () => {
             ))}
           </Swiper>
 
-          {/* Custom Navigation Arrows - Positioned to the side, not over videos */}
+          {/* Slider 1 Navigation Arrows */}
           <div className="absolute left-[2%] md:left-[-10%] lg:left-[-60px] top-1/2 -translate-y-1/2 z-30">
-            <button className="swiper-button-prev-custom w-8 h-8 md:w-10 md:h-10 bg-[var(--primary-text-color)] rounded-full flex items-center justify-center text-[var(--text-color)] cursor-pointer hover:bg-[var(--primary-text-color)] transition-all active:scale-90">
+            <button className="swiper-btn-prev-one w-8 h-8 md:w-10 md:h-10 bg-[var(--primary-text-color)] rounded-full flex items-center justify-center text-[var(--text-color)] cursor-pointer hover:bg-[var(--primary-text-color)] transition-all active:scale-90">
               <ChevronLeft size={20} strokeWidth={3} />
             </button>
           </div>
 
           <div className="absolute right-[2%] md:right-[-10%] lg:right-[-60px] top-1/2 -translate-y-1/2 z-30">
-            <button className="swiper-button-next-custom w-8 h-8 md:w-10 md:h-10 bg-[var(--primary-text-color)] rounded-full flex items-center justify-center text-[var(--text-color)] cursor-pointer hover:bg-[var(--primary-text-color)] transition-all  active:scale-90">
+            <button className="swiper-btn-next-one w-8 h-8 md:w-10 md:h-10 bg-[var(--primary-text-color)] rounded-full flex items-center justify-center text-[var(--text-color)] cursor-pointer hover:bg-[var(--primary-text-color)] transition-all active:scale-90">
               <ChevronRight size={20} strokeWidth={3} />
             </button>
           </div>
@@ -170,8 +178,8 @@ const Portfolio = () => {
 
         {/* second section */}
         {/* Profile Section */}
-        <div className="flex flex-row items-center gap-6 mb-16 text-left px-4">
-          <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden ring-1 ring-white/10 p-0.5">
+        <div className="flex flex-row items-center gap-4 mb-16 text-left px-4">
+          <div className="w-20 h-20 md:w-20 md:h-20 rounded-full overflow-hidden ring-1 ring-white/10 p-0.5">
             <img
               src={ManImage2}
               alt="Vijay Singh"
@@ -182,7 +190,7 @@ const Portfolio = () => {
             <h2 className="text-[20px] md:text-[30px] font-bold uppercase tracking-tight leading-none text-white">
               Vijay Singh
             </h2>
-            <p className="text-[var(--primary-text-color)] text-[18px] md:text-[25px] font-medium tracking-wide mt-2">
+            <p className="text-[var(--primary-text-color)] text-[12px] md:text-[16px] font-medium tracking-wide mt-2">
               100K+ Instagram Subscribers
             </p>
           </div>
@@ -192,21 +200,21 @@ const Portfolio = () => {
         <div className="relative w-full max-w-[800px]">
           <Swiper
             modules={[Navigation]}
-            spaceBetween={20}
+            spaceBetween={24}
             slidesPerView={1.2}
             centeredSlides={true}
             loop={true}
             navigation={{
-              nextEl: ".swiper-button-next-custom",
-              prevEl: ".swiper-button-prev-custom",
+              nextEl: ".swiper-btn-next-two",
+              prevEl: ".swiper-btn-prev-two",
             }}
             breakpoints={{
               640: { slidesPerView: 2, spaceBetween: 30 },
               1024: { slidesPerView: 3, spaceBetween: 40 },
             }}
-            className="portfolio-swiper w-full pb-20!"
+            className="portfolio-swiper-two w-full pb-20!"
           >
-            {videoData.map((item) => (
+            {videoDataslidertwo.map((item) => (
               <SwiperSlide
                 key={item.id}
                 className="flex justify-center items-center py-12"
@@ -218,15 +226,15 @@ const Portfolio = () => {
             ))}
           </Swiper>
 
-          {/* Custom Navigation Arrows - Positioned to the side, not over videos */}
+          {/* Slider 2 Navigation Arrows */}
           <div className="absolute left-[2%] md:left-[-10%] lg:left-[-60px] top-1/2 -translate-y-1/2 z-30">
-            <button className="swiper-button-prev-custom w-8 h-8 md:w-10 md:h-10 bg-[var(--primary-text-color)] rounded-full flex items-center justify-center text-[var(--text-color)] cursor-pointer hover:bg-[var(--primary-text-color)] transition-all active:scale-90">
+            <button className="swiper-btn-prev-two w-8 h-8 md:w-10 md:h-10 bg-[var(--primary-text-color)] rounded-full flex items-center justify-center text-[var(--text-color)] cursor-pointer hover:bg-[var(--primary-text-color)] transition-all active:scale-90">
               <ChevronLeft size={20} strokeWidth={3} />
             </button>
           </div>
 
           <div className="absolute right-[2%] md:right-[-10%] lg:right-[-60px] top-1/2 -translate-y-1/2 z-30">
-            <button className="swiper-button-next-custom w-8 h-8 md:w-10 md:h-10 bg-[var(--primary-text-color)] rounded-full flex items-center justify-center text-[var(--text-color)] cursor-pointer hover:bg-[var(--primary-text-color)] transition-all  active:scale-90">
+            <button className="swiper-btn-next-two w-8 h-8 md:w-10 md:h-10 bg-[var(--primary-text-color)] rounded-full flex items-center justify-center text-[var(--text-color)] cursor-pointer hover:bg-[var(--primary-text-color)] transition-all active:scale-90">
               <ChevronRight size={20} strokeWidth={3} />
             </button>
           </div>

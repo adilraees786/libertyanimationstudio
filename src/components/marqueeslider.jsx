@@ -20,26 +20,26 @@ const MarqueeSlider = () => {
   return (
     <div className="w-full py-20 overflow-hidden">
       {/* Newsletter Headline Section */}
-      <div className="container mx-auto px-6 text-center mb-16">
+      <div className="container mx-auto px-6 text-center mb-12">
         <h2 className="flex flex-col">
           <span className="text-[var(--text-color)] text-[28px] md:text-[42px] font-black tracking-[2px] uppercase">
             30 <span className="text-[var(--primary-text-color)]">SCROLL-STOPPING VIDEOS</span>
           </span>
-          <span className="text-[var(--text-color)] text-[28px] md:text-[42px] font-black tracking-[2px] uppercase">
+          <span className="text-[var(--text-color)] text-[28px] md:text-[42px] font-black tracking-[px] uppercase">
             30 DAYS <span className="text-[var(--primary-text-color)]">DONE-FOR-YOU</span>
           </span>
         </h2>
       </div>
 
       {/* Infinite Logo Marquee */}
-      <div className="relative flex overflow-hidden group mx-[0px] md:mx-[100px]">
-        <div className="flex animate-marquee gap-12 md:gap-24 items-center">
+      <div className="relative flex overflow-hidden group mx-[0px] md:mx-[80px]">
+        <div className="flex animate-marquee gap-0 md:gap-10 items-center">
           {displayLogos.map((logo, index) => (
             <div key={index} className="flex-shrink-0 cursor-pointer">
               <img
                 src={logo}
                 alt={`Client Logo ${index + 1}`}
-                className="h-8 md:h-12 w-auto object-contain"
+                className="h-[30px] md:h-[60px] w-auto object-contain"
               />
             </div>
           ))}
