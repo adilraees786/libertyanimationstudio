@@ -70,54 +70,37 @@ const Header = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white text-4xl leading-none"
+              className="text-white text-3xl leading-none border border-white/30 rounded-md px-2 py-1"
               aria-label="Toggle Menu"
             >
               {isOpen ? "×" : "☰"}
             </button>
           </div>
         </div>
-      </header>
 
-      {/* Mobile Full Screen Drawer */}
-      <div
-        className={`fixed top-0 right-0 w-full h-screen bg-[#000000] z-[999] md:hidden transform transition-transform duration-500 ease-in-out ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        {/* Top Bar */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
-          <a
-            href="#home"
-            onClick={() => setIsOpen(false)}
-            className="outline-none"
-          >
-            <img src={Logo} alt="Logo" className="h-12 w-auto object-contain" />
-          </a>
-
-          <button
-            onClick={() => setIsOpen(false)}
-            className="text-white text-3xl"
-          >
-            ×
-          </button>
+        {/* Mobile Dropdown Menu */}
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-400 ease-in-out ${
+            isOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="mx-4 mt-4 mb-2 border-3 border-dashed border-[var(--primary-text-color)] rounded-[30px] bg-[#111111]/95 backdrop-blur-md p-6">
+            <ul className="flex flex-col space-y-4">
+              {navLinks.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className="text-white text-[14px] font-black tracking-[2px] uppercase hover:text-[var(--primary-text-color)] transition-colors duration-300"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-
-        {/* Links */}
-        <ul className="flex flex-col px-8 py-10 space-y-8">
-          {navLinks.map((link) => (
-            <li key={link.name}>
-              <a
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="text-white text-xl font-semibold tracking-wide"
-              >
-                {link.name}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
+      </header>
     </>
   );
 };

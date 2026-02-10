@@ -34,7 +34,7 @@ const Footer = () => {
               </h2>
             </a>
 
-            <div className="space-y-4 text-[var(--text-color)] text-sm md:text-base leading-relaxed tracking-[0.5px]">
+            <div className="space-y-4 text-[var(--text-color)] text-[14px] md:text-[16px] leading-relaxed tracking-[0.5px]">
               <p>
                 Suite A, Bank House, 81 Judes Road, Egham,
                 <br />
@@ -50,7 +50,7 @@ const Footer = () => {
               </p>
 
               <p className="pt-2">
-                <span className="text-[var(--text-color)] font-semibold">
+                <span className="text-[var(--text-color)] font-normal">
                   Liberty Animation Studio
                 </span>
                 <br />8 The Green, STE A, Dover, Delaware 19901
@@ -63,7 +63,7 @@ const Footer = () => {
             <h3 className="text-xl font-black tracking-[2px] uppercase">
               QUICK LINKS
             </h3>
-            <ul className="grid grid-cols-1 gap-1">
+            <ul className="grid grid-cols-1 gap-1 text-[14px] md:text-[16px]">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <a
@@ -79,8 +79,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-10 flex justify-center md:justify-end">
-          <p className="text-[var(--primary-text-color)] text-[10px] md:text-[14px] tracking-[1px] font-medium">
+        <div className="mt-10 flex justify-center md:justify-end ">
+          <p className="text-[var(--primary-text-color)] text-[12px] md:text-[14px] tracking-[1px] font-normal whitespace-nowrap">
             © Liberty Animation Studio 2026. All Rights Reserved
           </p>
         </div>

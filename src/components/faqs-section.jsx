@@ -63,7 +63,7 @@ const FaqItem = ({ question, answer, isOpen, toggle }) => {
         onClick={toggle}
         className="w-full px-6 py-4 flex items-center justify-between text-left group"
       >
-        <span className="text-[15px] md:text-[17px] font-bold text-[var(--text-color)]  transition-colors">
+        <span className="text-[15px] md:text-[16px] font-semibold text-[var(--text-color)]  transition-colors">
           {question}
         </span>
         <div className="flex-shrink-0 ml-4">
@@ -84,7 +84,7 @@ const FaqItem = ({ question, answer, isOpen, toggle }) => {
       <div
         className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-[200px] pb-4 opacity-100" : "max-h-0 opacity-0"}`}
       >
-        <p className="text-[var(--text-color)] text-[14px] leading-relaxed">
+        <p className="text-[var(--text-color)] text-[14px] leading-relaxed font-normal">
           {answer}
         </p>
       </div>
