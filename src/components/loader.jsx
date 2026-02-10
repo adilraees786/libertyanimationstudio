@@ -8,12 +8,12 @@ const Loader = ({ onFinish }) => {
     // Start fade out after 9 seconds (1 second for fade animation)
     const fadeTimer = setTimeout(() => {
       setFadeOut(true);
-    }, 9000);
+    }, 6000);
 
     // Remove loader completely after 10 seconds
     const removeTimer = setTimeout(() => {
       onFinish();
-    }, 10000);
+    }, 6000);
 
     // Prevent scrolling while loader is visible
     document.body.style.overflow = "hidden";
@@ -43,9 +43,9 @@ const Loader = ({ onFinish }) => {
         />
 
         {/* Loading bar */}
-        <div className="w-[160px] md:w-[240px] h-[2px] bg-white/10 rounded-full overflow-hidden">
+        {/* <div className="w-[160px] md:w-[240px] h-[2px] bg-white/10 rounded-full overflow-hidden">
           <div className="h-full bg-[var(--primary-text-color)] rounded-full animate-loading-bar"></div>
-        </div>
+        </div> */}
       </div>
 
       <style>{`
