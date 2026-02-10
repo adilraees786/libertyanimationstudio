@@ -9,18 +9,21 @@ import "swiper/css/navigation";
 import { Play, ChevronLeft, ChevronRight } from "lucide-react";
 import Staricon1 from "../assets/images/star-icon-01.svg";
 import Staricon2 from "../assets/images/star-icon-02.svg";
-import portfolioVideo1 from "../assets/videos/portfolio-video-01.mp4";
-import portfolioVideo2 from "../assets/videos/portfolio-video-02.mp4";
-import portfolioVideo3 from "../assets/videos/portfolio-video-03.mp4";
-import portfolioVideo4 from "../assets/videos/portfolio-video-04.mp4";
+
+import portfolioVideo1 from "../assets/videos/vdeo-03.mp4";
+import portfolioVideo2 from "../assets/videos/vdeo-01.mp4";
+import portfolioVideo3 from "../assets/videos/vdeo-05.mp4";
+import portfolioVideo4 from "../assets/videos/vdeo-06.mp4";
+import portfolioVideo5 from "../assets/videos/vdeo-07.mp4";
+import portfolioVideo6 from "../assets/videos/vdeo-08.mp4";
 
 const videosData = [
   { id: 1, src: portfolioVideo1 },
   { id: 2, src: portfolioVideo2 },
   { id: 3, src: portfolioVideo3 },
   { id: 4, src: portfolioVideo4 },
-  { id: 5, src: portfolioVideo1 },
-  { id: 6, src: portfolioVideo2 },
+  { id: 5, src: portfolioVideo5 },
+  { id: 6, src: portfolioVideo6 },
 ];
 
 const VideoItem = ({ id, src, activeVideoId, setActiveVideoId }) => {

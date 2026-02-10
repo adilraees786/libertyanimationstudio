@@ -114,7 +114,14 @@ const Packages = () => {
                 fancy effects.
               </p>
 
-              <button className="w-full py-4 rounded-full border-2 border-[var(--primary-text-color)] text-[var(--primary-text-color)] font-black uppercase tracking-[2px] transition-all duration-300 hover:bg-[var(--primary-text-color)] hover:text-white">
+              <button className="w-full py-4 rounded-full border-2 border-[var(--primary-text-color)] text-[var(--primary-text-color)] font-black uppercase tracking-[2px] transition-all duration-300 hover:bg-[var(--primary-text-color)] hover:text-white" 
+               onClick={() => {
+              const contactSection = document.getElementById("contact");
+              if (contactSection) {
+                contactSection.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+              >
                 GET STARTED
               </button>
             </div>
@@ -176,7 +183,15 @@ const Packages = () => {
                 motion graphics & fancy effects.
               </p>
 
-              <button className="w-full py-4 rounded-full bg-white text-black font-black uppercase tracking-[2px] transition-all duration-300 hover:bg-black hover:text-white">
+              <button
+                className="w-full py-4 rounded-full bg-white text-black font-black uppercase tracking-[2px] transition-all duration-300 hover:bg-black hover:text-white"
+                onClick={() => {
+                  const contactSection = document.getElementById("contact");
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+              >
                 GET STARTED
               </button>
             </div>
@@ -253,7 +268,15 @@ const Packages = () => {
                     Creators who want clean, professional edits without the
                     extra fancy effects.
                   </p>
-                  <button className="w-full py-4 rounded-full border-2 border-[var(--primary-text-color)] text-[var(--primary-text-color)] font-black uppercase tracking-[2px] transition-all duration-300 hover:bg-[var(--primary-text-color)] hover:text-white">
+                  <button
+                    className="w-full py-4 rounded-full border-2 border-[var(--primary-text-color)] text-[var(--primary-text-color)] font-black uppercase tracking-[2px] transition-all duration-300 hover:bg-[var(--primary-text-color)] hover:text-white"
+                    onClick={() => {
+                      const contactSection = document.getElementById("contact");
+                      if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
+                  >
                     GET STARTED
                   </button>
                 </div>
@@ -313,7 +336,15 @@ const Packages = () => {
                     Creators who want high-energy, real-quality edits with all
                     the motion graphics & fancy effects.
                   </p>
-                  <button className="w-full py-4 rounded-full bg-white text-black font-black uppercase tracking-[2px] transition-all duration-300 hover:bg-black hover:text-white">
+                  <button
+                    className="w-full py-4 rounded-full bg-white text-black font-black uppercase tracking-[2px] transition-all duration-300 hover:bg-black hover:text-white"
+                    onClick={() => {
+                      const contactSection = document.getElementById("contact");
+                      if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
+                  >
                     GET STARTED
                   </button>
                 </div>

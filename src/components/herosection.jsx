@@ -30,6 +30,12 @@ const HeroSection = () => {
 
           {/* Pill CTA Button */}
           <button
+            onClick={() => {
+              const contactSection = document.getElementById("contact");
+              if (contactSection) {
+                contactSection.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
             className="mt-10 relative group px-4 py-1.5
   bg-[var(--primary-text-color)] 
   border-[2px] border-[var(--primary-text-color)] 

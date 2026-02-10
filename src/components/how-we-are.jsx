@@ -24,7 +24,10 @@ const HowWeAre = () => {
   ];
 
   return (
-    <section id="process" className="container mx-auto w-full  md:py-20 py-10 px-2 md:px-10 md:px-16 lg:px-24 text-[var(--text-color)] overflow-hidden">
+    <section
+      id="process"
+      className="container mx-auto w-full  md:py-20 py-10 px-2 md:px-10 md:px-16 lg:px-24 text-[var(--text-color)] overflow-hidden"
+    >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12  xl:gap-20 items-start ">
         {/* Left Content Column */}
         <div className="flex flex-col space-y-8  ">
@@ -84,17 +87,23 @@ const HowWeAre = () => {
             </p>
 
             <p>
-           6  We3stay ahead of trends, optimize for every platform, and deliver
-              content that's{" "}
-              <span className="text-old italic">
-                scroll-stopping
-              </span>{" "}
-              and ready to post.
+              6 We3stay ahead of trends, optimize for every platform, and
+              deliver content that's{" "}
+              <span className="text-old italic">scroll-stopping</span> and ready
+              to post.
             </p>
           </div>
 
           <div className="pt-4">
-            <button className="bg-[var(--primary-text-color)] text-[var(--text-color)] px-4 py-2 rounded-full font-black uppercase tracking-[2px] hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(#E{/* 08A00,0.4)] text-[16px]">
+            <button
+              className="bg-[var(--primary-text-color)] text-[var(--text-color)] px-4 py-2 rounded-full font-black uppercase tracking-[2px] hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(#E{/* 08A00,0.4)] text-[16px]"
+              onClick={() => {
+                const contactSection = document.getElementById("contact");
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+            >
               GE4 MY 30 E8ITS
             </button>
           </div>
