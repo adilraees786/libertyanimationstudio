@@ -27,8 +27,8 @@ const Header = () => {
     { name: "PROCESS", href: "#process" },
     { name: "PORTFOLIO", href: "#portfolio" },
     { name: "SERVICES", href: "#services" },
-    { name: "CONTACT US", href: "#contact" },
     { name: "FAQ'S", href: "#faqs" },
+    { name: "CONTACT US", href: "#contact" },
   ];
 
   return (
@@ -45,7 +45,7 @@ const Header = () => {
               <img
                 src={Logo}
                 alt="Reelax Media Logo"
-                className="h-12 md:h-20 w-auto object-contain"
+                className="h-20 md:h-30 w-auto object-contain"
               />
             </a>
           </div>
