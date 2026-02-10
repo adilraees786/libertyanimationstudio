@@ -10,6 +10,7 @@ import { Play, ChevronLeft, ChevronRight } from "lucide-react";
 
 import PortfolioArrow from "../assets/images/portfolio-arrow.png";
 import ManImage from "../assets/images/man-image.svg";
+import ManImage2 from "../assets/images/man-image-02.svg";
 import portfolioVideo1 from "../assets/videos/vdeo-01.mp4";
 import portfolioVideo2 from "../assets/videos/vdeo-02.mp4";
 import portfolioVideo3 from "../assets/videos/vdeo-03.mp4";
@@ -24,13 +25,16 @@ const videoData = [
   { id: 2, src: portfolioVideo2 },
   { id: 3, src: portfolioVideo3 },
   { id: 4, src: portfolioVideo4 },
-  { id: 5, src: portfolioVideo5 },
-  { id: 6, src: portfolioVideo6 },
-  { id: 7, src: portfolioVideo7 },
-  { id: 8, src: portfolioVideo8 },
+];
+// slider 2
+const videoDataslidertwo = [
+  { id: 1, src: portfolioVideo5 },
+  { id: 2, src: portfolioVideo6 },
+  { id: 3, src: portfolioVideo7 },
+  { id: 4, src: portfolioVideo8 },
 ];
 
-const VideoSlideContent = ({ item, isActive }) => {
+const VideoSlideContent = ({ item, isActive, isGrid = false }) => {
   const [isPlaying, setIsPlaying] = React.useState(false);
   const videoRef = React.useRef(null);
 
@@ -56,11 +60,13 @@ const VideoSlideContent = ({ item, isActive }) => {
   return (
     <div
       onClick={handleTogglePlay}
-      className={`relative rounded-[5px] overflow-hidden aspect-9/16 transition-all duration-700 ease-in-out border-[1px] border-[var(--primary-text-color)] ${
-        isActive
-          ? "lg:scale-[1.15] scale-110 z-20 border-(--primary-text-color) opacity-100"
-          : "scale-90 opacity-30 border-transparent blur-[1px]"
-      } w-full max-w-[220px] md:max-w-[400px] cursor-pointer group mx-auto`}
+      className={`relative rounded-[15px] overflow-hidden aspect-9/16 transition-all duration-700 ease-in-out border-2 ${
+        isGrid
+          ? "border-(--primary-text-color) opacity-100 hover:scale-[1.02]"
+          : isActive
+            ? "lg:scale-[1.15] scale-110 z-20 border-(--primary-text-color) opacity-100"
+            : "scale-90 opacity-30 border-transparent blur-[1px]"
+      } w-full cursor-pointer group mx-auto shadow-2xl`}
     >
       <video
         ref={videoRef}
@@ -70,11 +76,11 @@ const VideoSlideContent = ({ item, isActive }) => {
         playsInline
       />
 
-      {/* Play Button Overlay - Visible when NOT playing and slide IS active */}
+      {/* Play Button Overlay */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div
           className={`w-12 h-12 md:w-14 md:h-14 bg-[var(--primary-text-color)] rounded-full flex items-center justify-center transition-all duration-500 shadow-lg ${
-            isActive && !isPlaying
+            (isGrid || isActive) && !isPlaying
               ? "scale-100 opacity-100"
               : "scale-0 opacity-0"
           }`}
@@ -83,7 +89,7 @@ const VideoSlideContent = ({ item, isActive }) => {
         </div>
       </div>
 
-      {!isActive && <div className="absolute inset-0 bg-black/40" />}
+      {!isGrid && !isActive && <div className="absolute inset-0 bg-black/40" />}
     </div>
   );
 };
@@ -92,7 +98,7 @@ const Portfolio = () => {
   return (
     <section
       id="portfolio"
-      className="py-0 md:py-20  text-white min-h-screen flex flex-col items-center"
+      className="py-12 md:py-24 text-white min-h-screen flex flex-col items-center overflow-x-hidden"
     >
       <div className="container mx-auto px-4 flex flex-col items-center">
         {/* Portfolio Badge */}
@@ -111,65 +117,136 @@ const Portfolio = () => {
           />
         </div>
 
-        {/* Profile Section */}
-        <div className="flex flex-row items-center gap-4 mb-16 text-left px-4">
-          <div className="w-20 h-20 md:w-20 md:h-20 rounded-full overflow-hidden ring-1 ring-white/10 p-0.5">
-            <img
-              src={ManImage}
-              alt="Daniel Iles"
-              className="w-full h-full object-cover rounded-full"
-            />
+        {/* --- Section 1: Daniel Iles --- */}
+        <div className="w-full max-w-[1200px] mb-20 flex flex-col items-center">
+          <div className="flex flex-row items-center justify-center gap-4 mb-12 text-left px-4">
+            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden ring-2 ring-(--primary-text-color) p-0.5">
+              <img
+                src={ManImage}
+                alt="Daniel Iles"
+                className="w-full h-full object-cover rounded-full"
+              />
+            </div>
+            <div className="flex flex-col">
+              <h2 className="text-[24px] md:text-[36px] font-bold uppercase tracking-tight leading-none text-white">
+                Daniel Iles
+              </h2>
+              <p className="text-[var(--primary-text-color)] text-[14px] md:text-[18px] font-medium tracking-wide mt-2">
+                829K+ YouTube Subscribers
+              </p>
+            </div>
           </div>
-          <div className="flex flex-col">
-            <h2 className="text-[20px] md:text-[30px] font-bold uppercase tracking-tight leading-none text-white">
-              Daniel Iles
-            </h2>
-            <p className="text-[var(--primary-text-color)] text-[12px] md:text-[16px] font-medium tracking-wide mt-2">
-              829K+ YouTube Subscribers
-            </p>
+
+          {/* Desktop Grid for Section 1 */}
+          <div className="hidden lg:grid grid-cols-4 gap-8 px-4">
+            {videoData.map((item) => (
+              <VideoSlideContent
+                key={item.id}
+                item={item}
+                isActive={true}
+                isGrid={true}
+              />
+            ))}
+          </div>
+
+          {/* Mobile/Tablet Slider for Section 1 */}
+          <div className="lg:hidden relative w-full px-4">
+            <Swiper
+              modules={[Navigation]}
+              spaceBetween={20}
+              slidesPerView={1.3}
+              centeredSlides={true}
+              loop={true}
+              navigation={{
+                nextEl: ".swiper-btn-next-one",
+                prevEl: ".swiper-btn-prev-one",
+              }}
+              breakpoints={{
+                640: { slidesPerView: 2, spaceBetween: 30 },
+              }}
+              className="portfolio-swiper-one w-full pb-10"
+            >
+              {videoData.map((item) => (
+                <SwiperSlide key={item.id} className="py-8">
+                  {({ isActive }) => (
+                    <VideoSlideContent item={item} isActive={isActive} />
+                  )}
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            <button className="swiper-btn-prev-one absolute left-[-5px] top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-(--primary-text-color) rounded-full flex items-center justify-center text-white shadow-[0_0_15px_rgba(0,0,0,0.3)] active:scale-95 transition-all">
+              <ChevronLeft size={20} strokeWidth={3} />
+            </button>
+            <button className="swiper-btn-next-one absolute right-[-5px] top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-(--primary-text-color) rounded-full flex items-center justify-center text-white shadow-[0_0_15px_rgba(0,0,0,0.3)] active:scale-95 transition-all">
+              <ChevronRight size={20} strokeWidth={3} />
+            </button>
           </div>
         </div>
 
-        {/* Video Slider Container */}
-        <div className="relative w-full max-w-[800px]">
-          <Swiper
-            modules={[Navigation]}
-            spaceBetween={24}
-            slidesPerView={1.2}
-            centeredSlides={true}
-            loop={true}
-            navigation={{
-              nextEl: ".swiper-btn-next-one",
-              prevEl: ".swiper-btn-prev-one",
-            }}
-            breakpoints={{
-              640: { slidesPerView: 2, spaceBetween: 30 },
-              1024: { slidesPerView: 3, spaceBetween: 40 },
-            }}
-            className="portfolio-swiper-one w-full pb-20!"
-          >
-            {videoData.map((item) => (
-              <SwiperSlide
-                key={item.id}
-                className="flex justify-center items-center py-12"
-              >
-                {({ isActive }) => (
-                  <VideoSlideContent item={item} isActive={isActive} />
-                )}
-              </SwiperSlide>
-            ))}
-          </Swiper>
-
-          {/* Slider 1 Navigation Arrows */}
-          <div className="absolute left-[2%] md:left-[-10%] lg:left-[-60px] top-1/2 -translate-y-1/2 z-30">
-            <button className="swiper-btn-prev-one w-8 h-8 md:w-10 md:h-10 bg-[var(--primary-text-color)] rounded-full flex items-center justify-center text-[var(--text-color)] cursor-pointer hover:bg-[var(--primary-text-color)] transition-all active:scale-90">
-              <ChevronLeft size={20} strokeWidth={3} />
-            </button>
+        {/* --- Section 2: Vijay Singh --- */}
+        <div className="w-full max-w-[1200px] mb-20 flex flex-col items-center">
+          <div className="flex flex-row items-center justify-center gap-4 mb-12 text-left px-4">
+            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden ring-2 ring-(--primary-text-color) p-0.5">
+              <img
+                src={ManImage2}
+                alt="Vijay Singh"
+                className="w-full h-full object-cover rounded-full"
+              />
+            </div>
+            <div className="flex flex-col">
+              <h2 className="text-[24px] md:text-[36px] font-bold uppercase tracking-tight leading-none text-white">
+                Vijay Singh
+              </h2>
+              <p className="text-(--primary-text-color) text-[14px] md:text-[18px] font-medium tracking-wide mt-2">
+                100K+ Instagram Subscribers
+              </p>
+            </div>
           </div>
 
-          <div className="absolute right-[2%] md:right-[-10%] lg:right-[-60px] top-1/2 -translate-y-1/2 z-30">
-            <button className="swiper-btn-next-one w-8 h-8 md:w-10 md:h-10 bg-[var(--primary-text-color)] rounded-full flex items-center justify-center text-[var(--text-color)] cursor-pointer hover:bg-[var(--primary-text-color)] transition-all active:scale-90">
-              <ChevronRight size={20} strokeWidth={3} />
+          {/* Desktop Grid for Section 2 */}
+          <div className="hidden lg:grid grid-cols-4 gap-8 px-4">
+            {videoDataslidertwo.map((item) => (
+              <VideoSlideContent
+                key={item.id}
+                item={item}
+                isActive={true}
+                isGrid={true}
+              />
+            ))}
+          </div>
+
+          {/* Mobile/Tablet Slider for Section 2 */}
+          <div className="lg:hidden relative w-full px-4">
+            <Swiper
+              modules={[Navigation]}
+              spaceBetween={20}
+              slidesPerView={1.3}
+              centeredSlides={true}
+              loop={true}
+              navigation={{
+                nextEl: ".swiper-btn-next-two",
+                prevEl: ".swiper-btn-prev-two",
+              }}
+              breakpoints={{
+                640: { slidesPerView: 2, spaceBetween: 30 },
+              }}
+              className="portfolio-swiper-two w-full pb-10"
+            >
+              {videoDataslidertwo.map((item) => (
+                <SwiperSlide key={item.id} className="py-8">
+                  {({ isActive }) => (
+                    <VideoSlideContent item={item} isActive={isActive} />
+                  )}
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            <button className="swiper-btn-prev-two absolute left-[-5px] top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-(--primary-text-color) rounded-full flex items-center justify-center text-white shadow-[0_0_15px_rgba(0,0,0,0.3)] active:scale-95 transition-all">
+              <ChevronLeft size={28} strokeWidth={3} />
+            </button>
+            <button className="swiper-btn-next-two absolute right-[-5px] top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-(--primary-text-color) rounded-full flex items-center justify-center text-white shadow-[0_0_15px_rgba(0,0,0,0.3)] active:scale-95 transition-all">
+              <ChevronRight size={28} strokeWidth={3} />
             </button>
           </div>
         </div>
