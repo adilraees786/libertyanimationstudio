@@ -51,7 +51,7 @@ const Footer = () => {
 
               <p className="pt-2">
                 <span className="text-[var(--text-color)] font-semibold">
-                  REELAX MEDIA LLC
+                  Liberty Animation Studio
                 </span>
                 <br />8 The Green, STE A, Dover, Delaware 19901
               </p>

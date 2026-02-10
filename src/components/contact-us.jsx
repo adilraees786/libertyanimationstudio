@@ -20,14 +20,15 @@ const ContactUs = () => {
           <div className="relative">
             <h2 className="text-[25px] md:text-[45px] font-black uppercase text-[var(-text-color)] whitespace-nowrap">
               <span className="text-[var(--primary-text-color)]">
-                "LET'S MAKE YOUR
+                <span className="text-[var(--text-color)]">"</span>LET'S MAKE
+                YOUR
               </span>
               <br />
               <span>BRAND UNMISSABLE</span>
             </h2>
 
             {/* Decorative Arrow - Positioned to flow from the text */}
-            <div className=" hidden md:block absolute -bottom-58 -right-8 md:-right-1  w-56 md:w-64 opacity-90 pointer-events-none rotate-[-10deg]">
+            <div className=" hidden md:block absolute -bottom-55 -right-8 md:-right-30  w-56 md:w-64 opacity-90 pointer-events-none rotate-[-10deg]">
               <img
                 src={ContactArrow}
                 alt="Decoration"
