@@ -53,7 +53,7 @@ const VideoItem = ({ id, src, activeVideoId, setActiveVideoId }) => {
         src={src}
         className="w-full h-full object-cover"
         loop
-        muted
+  
         playsInline
       />
 
