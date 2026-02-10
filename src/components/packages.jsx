@@ -115,7 +115,7 @@ const Packages = () => {
               <div className="w-full h-px bg-black/10 mb-8"></div>
 
               <div className="space-y-1">
-                <p className="text-[var(--text-color)] text-[18px] md:text-[20px] font-bold">
+                <p className="text-[var(--text-color)] text-[18px] md:text-[20px] font-normal">
                   High-Impact Motion Edits
                 </p>
                 <h5 className="text-[var(--text-color)] text-[20px] md:text-[40px] font-bold leading-tight">
