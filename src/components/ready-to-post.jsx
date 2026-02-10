@@ -55,7 +55,6 @@ const VideoItem = ({ id, src, activeVideoId, setActiveVideoId }) => {
         loop
         muted
         playsInline
-      
       />
 
       {/* Play Icon - Only visible when NOT playing */}
@@ -124,10 +123,10 @@ const ReadyToPost = () => {
         </div>
 
         {/* Mobile Slider Layout (Visible only on small screens) */}
-        <div className="md:hidden relative px-10">
+        <div className="md:hidden relative">
           <Swiper
             modules={[Navigation]}
-            spaceBetween={20}
+            spaceBetween={24}
             slidesPerView={1.2}
             centeredSlides={true}
             loop={true}
@@ -135,27 +134,93 @@ const ReadyToPost = () => {
               nextEl: ".ready-next",
               prevEl: ".ready-prev",
             }}
-            className="pb-0"
+            className="pb-0 w-full"
           >
             {videosData.map((video) => (
-              <SwiperSlide key={video.id}>
-                <VideoItem
-                  id={video.id}
-                  src={video.src}
-                  activeVideoId={activeVideoId}
-                  setActiveVideoId={setActiveVideoId}
-                />
+              <SwiperSlide
+                key={video.id}
+                className="flex justify-center items-center py-12"
+              >
+                {({ isActive }) => {
+                  const videoRef = React.useRef(null);
+                  const [isPlaying, setIsPlaying] = React.useState(false);
+
+                  const handleTogglePlay = () => {
+                    if (!isActive) return;
+                    if (videoRef.current.paused) {
+                      videoRef.current.play();
+                      setIsPlaying(true);
+                    } else {
+                      videoRef.current.pause();
+                      setIsPlaying(false);
+                    }
+                  };
+
+                  React.useEffect(() => {
+                    if (!isActive && isPlaying) {
+                      videoRef.current.pause();
+                      setIsPlaying(false);
+                    }
+                  }, [isActive, isPlaying]);
+
+                  return (
+                    <div
+                      onClick={handleTogglePlay}
+                      className={`relative rounded-[5px] overflow-hidden aspect-9/16 transition-all duration-700 ease-in-out border-[1px] border-[var(--primary-text-color)] ${
+                        isActive
+                          ? "scale-110 z-20 border-(--primary-text-color) opacity-100"
+                          : "scale-90 opacity-30 border-transparent blur-[1px]"
+                      } w-full max-w-[220px] cursor-pointer group mx-auto`}
+                    >
+                      <video
+                        ref={videoRef}
+                        src={video.src}
+                        className="w-full h-full object-cover"
+                        loop
+                        muted
+                        playsInline
+                      />
+
+                      {/* Play Button Overlay */}
+                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <div
+                          className={`w-12 h-12 bg-[var(--primary-text-color)] rounded-full flex items-center justify-center transition-all duration-500 shadow-lg ${
+                            isActive && !isPlaying
+                              ? "scale-100 opacity-100"
+                              : "scale-0 opacity-0"
+                          }`}
+                        >
+                          <Play
+                            size={24}
+                            fill="white"
+                            color="white"
+                            className="ml-1"
+                          />
+                        </div>
+                      </div>
+
+                      {!isActive && (
+                        <div className="absolute inset-0 bg-black/40" />
+                      )}
+                    </div>
+                  );
+                }}
               </SwiperSlide>
             ))}
           </Swiper>
 
-          {/* Slider Navigation Buttons */}
-          <button className="ready-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-(--primary-text-color) rounded-full flex items-center justify-center text-white active:scale-95 transition-transform shadow-lg">
-            <ChevronLeft size={20} strokeWidth={3} />
-          </button>
-          <button className="ready-next absolute right-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-(--primary-text-color) rounded-full flex items-center justify-center text-white active:scale-95 transition-transform shadow-lg">
-            <ChevronRight size={20} strokeWidth={3} />
-          </button>
+          {/* Slider Navigation Arrows */}
+          <div className="absolute left-[2%] top-1/2 -translate-y-1/2 z-30">
+            <button className="ready-prev w-8 h-8 bg-[var(--primary-text-color)] rounded-full flex items-center justify-center text-[var(--text-color)] cursor-pointer hover:bg-[var(--primary-text-color)] transition-all active:scale-90">
+              <ChevronLeft size={20} strokeWidth={3} />
+            </button>
+          </div>
+
+          <div className="absolute right-[2%] top-1/2 -translate-y-1/2 z-30">
+            <button className="ready-next w-8 h-8 bg-[var(--primary-text-color)] rounded-full flex items-center justify-center text-[var(--text-color)] cursor-pointer hover:bg-[var(--primary-text-color)] transition-all active:scale-90">
+              <ChevronRight size={20} strokeWidth={3} />
+            </button>
+          </div>
         </div>
       </div>
     </section>

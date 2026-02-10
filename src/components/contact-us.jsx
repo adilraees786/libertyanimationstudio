@@ -18,7 +18,7 @@ const ContactUs = () => {
         {/* Left Side: Headline & Arrow */}
         <div className="lg:w-1/3 text-center lg:text-left pt-10 flex flex-col items-center lg:items-start relative">
           <div className="relative">
-            <h2 className="text-[25px] md:text-[45px] font-black uppercase text-[var(-text-color)] whitespace-nowrap">
+            <h2 className="text-[35px] md:text-[45px] font-black uppercase text-[var(-text-color)] whitespace-nowrap leading-[1]">
               <span className="text-[var(--primary-text-color)]">
                 <span className="text-[var(--text-color)]">"</span>LET'S MAKE
                 YOUR
