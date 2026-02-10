@@ -127,7 +127,6 @@ const Packages = () => {
                 Pro Package
               </h4>
               <div className="w-full h-px bg-black/10 mb-8"></div>
-
               <div className="space-y-1">
                 <p className="text-[var(--text-color)] text-[18px] md:text-[20px] font-normal">
                   High-Impact Motion Edits
