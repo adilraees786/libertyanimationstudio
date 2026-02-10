@@ -42,10 +42,10 @@ const Footer = () => {
                 <br />
                 For Queries:{" "}
                 <a
-                  href="mailto:info@reelax-media.com"
+                  href="mailto:info@libertyanimationstudio.com"
                   className="hover:text-[#00FFF0] transition-colors"
                 >
-                  info@reelax-media.com
+                  info@libertyanimationstudio.com
                 </a>
               </p>
 
