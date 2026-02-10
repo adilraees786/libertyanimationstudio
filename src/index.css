@@ -80,7 +80,7 @@ h1, h2, h3, h4, h5, h6, span, a, p {
 }
 
 .footer-section {
-  @apply w-full bg-black text-[var(--text-color)] pt-16 pb-12 border-t border-dashed border-[var(--primary-text-color)];
+  @apply w-full bg-black text-[var(--text-color)] pt-16 pb-12 border-t-2 border-dashed border-[var(--primary-text-color)];
 } 
 
 .hero-section {
