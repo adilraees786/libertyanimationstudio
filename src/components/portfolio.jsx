@@ -155,7 +155,7 @@ const Portfolio = () => {
             <Swiper
               modules={[Navigation]}
               spaceBetween={20}
-              slidesPerView={1.3}
+              slidesPerView={1.2}
               centeredSlides={true}
               loop={true}
               navigation={{
@@ -163,7 +163,8 @@ const Portfolio = () => {
                 prevEl: ".swiper-btn-prev-one",
               }}
               breakpoints={{
-                640: { slidesPerView: 2, spaceBetween: 30 },
+                640: { slidesPerView: 1.8, spaceBetween: 20 },
+                768: { slidesPerView: 2.2, spaceBetween: 30 },
               }}
               className="portfolio-swiper-one w-full pb-10"
             >
@@ -222,7 +223,7 @@ const Portfolio = () => {
             <Swiper
               modules={[Navigation]}
               spaceBetween={20}
-              slidesPerView={1.3}
+              slidesPerView={1.2}
               centeredSlides={true}
               loop={true}
               navigation={{
@@ -230,7 +231,8 @@ const Portfolio = () => {
                 prevEl: ".swiper-btn-prev-two",
               }}
               breakpoints={{
-                640: { slidesPerView: 2, spaceBetween: 30 },
+                640: { slidesPerView: 1.8, spaceBetween: 20 },
+                768: { slidesPerView: 2.2, spaceBetween: 30 },
               }}
               className="portfolio-swiper-two w-full pb-10"
             >
