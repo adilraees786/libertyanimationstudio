@@ -79,8 +79,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-10 flex justify-center md:justify-end ">
-          <p className="text-[var(--primary-text-color)] text-[12px] md:text-[14px] tracking-[1px] font-normal whitespace-nowrap">
+        <div className="mt-10 flex justify-center">
+          <p className="text-[var(--primary-text-color)] text-[12px] md:text-[16px] tracking-[1px] font-normal whitespace-nowrap">
             © Liberty Animation Studio 2026. All Rights Reserved
           </p>
         </div>

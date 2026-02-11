@@ -52,7 +52,7 @@ const Loader = ({ onFinish }) => {
         @keyframes logo-pulse {
           0%, 100% {
             opacity: 1;
-            transform: scale(2);
+            transform: scale(1.4);
           }
           50% {
             opacity: 0.85;
