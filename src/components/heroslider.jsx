@@ -1,21 +1,21 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
-import Sliderimge1 from "../assets/images/slider-gif-001.gif";
-import Sliderimge2 from "../assets/images/slider-gif-002.gif";
-import Sliderimge3 from "../assets/images/slider-gif-003.gif";
-import Sliderimge4 from "../assets/images/slider-gif-004.gif";
-import Sliderimge5 from "../assets/images/slider-gif-005.gif";
-import Sliderimge6 from "../assets/images/slider-gif-006.gif";
-import Sliderimge7 from "../assets/images/slider-gif-007.gif";
+import Slider1 from "../assets/videos/slider-001.mp4";
+import Slider2 from "../assets/videos/slider-002.mp4";
+import Slider3 from "../assets/videos/slider-003.mp4";
+import Slider4 from "../assets/videos/slider-004.mp4";
+import Slider5 from "../assets/videos/slider-005.mp4";
+import Slider6 from "../assets/videos/slider-006.mp4";
+import Slider7 from "../assets/videos/slider-007.mp4";
 
 const HeroSlider = () => {
   const images = [
-    Sliderimge1,
-    Sliderimge2,
-    Sliderimge3,
-    Sliderimge4,
-    Sliderimge5,
-    Sliderimge6,
-    Sliderimge7,
+    Slider1,
+    Slider2,
+    Slider3,
+    Slider4,
+    Slider5,
+    Slider6,
+    Slider7,
   ];
 
   // Quadruple images for seamless infinite scroll
@@ -156,18 +156,20 @@ const HeroSlider = () => {
       onTouchEnd={onTouchEnd}
     >
       <div ref={trackRef} className="flex w-max will-change-transform">
-        {displayImages.map((img, index) => (
+        {displayImages.map((src, index) => (
           <div key={index} className="flex-shrink-0 px-2.5 flex items-start">
             <div
-              className={`w-[200px] md:w-[280px] h-auto overflow-hidden border border-white/5 shadow-2xl transition-transform duration-500 hover:scale-105 pointer-events-none ${
+              className={`w-[200px] md:w-[280px] h-auto overflow-hidden border border-white/5 shadow-2xl transition-transform duration-500 hover:scale-105 pointer-events-none rounded-[5px] ${
                 index % 2 !== 0 ? "mt-16 md:mt-[48px]" : ""
               }`}
             >
-              <img
-                src={img}
-                alt={`Slider clip ${index + 1}`}
+              <video
+                src={src}
                 className="w-full h-full object-cover"
-                draggable="false"
+                autoPlay
+                muted
+                loop
+                playsInline
               />
             </div>
           </div>
