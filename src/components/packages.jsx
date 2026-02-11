@@ -11,7 +11,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-const Packages = () => {
+const Packages = ({ onSelectPackage }) => {
   const essentialsFeatures = [
     "Trimming & Cutting",
     "Captions (Trendy & Engaging)",
@@ -114,13 +114,9 @@ const Packages = () => {
                 fancy effects.
               </p>
 
-              <button className="w-full py-4 rounded-full border-2 border-[var(--primary-text-color)] text-[var(--primary-text-color)] font-black uppercase tracking-[2px] transition-all duration-300 hover:bg-[var(--primary-text-color)] hover:text-white" 
-               onClick={() => {
-              const contactSection = document.getElementById("contact");
-              if (contactSection) {
-                contactSection.scrollIntoView({ behavior: "smooth" });
-              }
-            }}
+              <button
+                className="w-full py-4 rounded-full border-2 border-[var(--primary-text-color)] text-[var(--primary-text-color)] font-black uppercase tracking-[2px] transition-all duration-300 hover:bg-[var(--primary-text-color)] hover:text-white"
+                onClick={() => onSelectPackage("Essentials Package")}
               >
                 GET STARTED
               </button>
@@ -185,12 +181,7 @@ const Packages = () => {
 
               <button
                 className="w-full py-4 rounded-full bg-white text-black font-black uppercase tracking-[2px] transition-all duration-300 hover:bg-black hover:text-white"
-                onClick={() => {
-                  const contactSection = document.getElementById("contact");
-                  if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
+                onClick={() => onSelectPackage("Pro Package")}
               >
                 GET STARTED
               </button>
@@ -270,12 +261,7 @@ const Packages = () => {
                   </p>
                   <button
                     className="w-full py-4 rounded-full border-2 border-[var(--primary-text-color)] text-[var(--primary-text-color)] font-black uppercase tracking-[2px] transition-all duration-300 hover:bg-[var(--primary-text-color)] hover:text-white"
-                    onClick={() => {
-                      const contactSection = document.getElementById("contact");
-                      if (contactSection) {
-                        contactSection.scrollIntoView({ behavior: "smooth" });
-                      }
-                    }}
+                    onClick={() => onSelectPackage("Essentials Package")}
                   >
                     GET STARTED
                   </button>
@@ -338,12 +324,7 @@ const Packages = () => {
                   </p>
                   <button
                     className="w-full py-4 rounded-full bg-white text-black font-black uppercase tracking-[2px] transition-all duration-300 hover:bg-black hover:text-white"
-                    onClick={() => {
-                      const contactSection = document.getElementById("contact");
-                      if (contactSection) {
-                        contactSection.scrollIntoView({ behavior: "smooth" });
-                      }
-                    }}
+                    onClick={() => onSelectPackage("Pro Package")}
                   >
                     GET STARTED
                   </button>
@@ -381,7 +362,10 @@ const Packages = () => {
                 your brand, your goals, and your workflow. Let's build your
                 custom plan today.
               </p>
-              <button className="px-10 py-4 rounded-full bg-black text-[var(--text-color)] font-bold uppercase tracking-widest text-[12px] transition-all duration-300 hover:scale-[1.03] shadow-lg">
+              <button
+                className="px-10 py-4 rounded-full bg-black text-[var(--text-color)] font-bold uppercase tracking-widest text-[12px] transition-all duration-300 hover:scale-[1.03] shadow-lg"
+                onClick={() => onSelectPackage("Custom Plan")}
+              >
                 CUSTOMIZE YOUR PLAN
               </button>
             </div>

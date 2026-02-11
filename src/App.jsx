@@ -14,6 +14,18 @@ import Loader from "./components/loader";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
+  const [packageData, setPackageData] = useState({
+    type: "Select a package",
+    isLocked: false,
+  });
+
+  const handlePackageSelect = (type) => {
+    setPackageData({ type, isLocked: true });
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <>
@@ -30,10 +42,13 @@ const App = () => {
               <Portfolio />
               <ReadyToPost />
             </div>
-            <Packages />
+            <Packages onSelectPackage={handlePackageSelect} />
           </div>
         </div>
-        <ContactUs />
+        <ContactUs
+          preSelectedPackage={packageData.type}
+          isLocked={packageData.isLocked}
+        />
         <FaqsSection />
         <Footer />
       </main>

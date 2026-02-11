@@ -4,7 +4,7 @@ import Input from "../../reuseablecomponents/Input";
 import { ChevronDown, Loader2 } from "lucide-react";
 import Swal from "sweetalert2";
 
-const ContactUs = () => {
+const ContactUs = ({ preSelectedPackage, isLocked }) => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -14,6 +14,13 @@ const ContactUs = () => {
     packageType: "Select a package",
     challenge: "",
   });
+
+  // Sync with pre-selected package from App.jsx
+  React.useEffect(() => {
+    if (preSelectedPackage) {
+      setFormData((prev) => ({ ...prev, packageType: preSelectedPackage }));
+    }
+  }, [preSelectedPackage]);
 
   const [loading, setLoading] = useState(false);
 
@@ -80,7 +87,7 @@ const ContactUs = () => {
           phone: "",
           social: "",
           brandDescription: "",
-          packageType: "Select a package",
+          packageType: preSelectedPackage || "Select a package",
           challenge: "",
         });
       } else {
@@ -255,7 +262,10 @@ const ContactUs = () => {
                       name="packageType"
                       value={formData.packageType}
                       onChange={handleChange}
-                      className="w-full bg-white rounded-[10px] px-4 h-12 text-black appearance-none outline-none font-medium"
+                      disabled={isLocked}
+                      className={`w-full bg-white rounded-[10px] px-4 h-12 text-black appearance-none outline-none font-medium ${
+                        isLocked ? "cursor-not-allowed opacity-80" : ""
+                      }`}
                       required
                     >
                       <option disabled>Select a package</option>
@@ -263,11 +273,19 @@ const ContactUs = () => {
                       <option>Pro Package</option>
                       <option>Custom Plan</option>
                     </select>
-                    <ChevronDown
-                      className="absolute right-4 top-1/2 -translate-y-1/2 text-black pointer-events-none"
-                      size={20}
-                    />
+                    {!isLocked && (
+                      <ChevronDown
+                        className="absolute right-4 top-1/2 -translate-y-1/2 text-black pointer-events-none"
+                        size={20}
+                      />
+                    )}
                   </div>
+                  {isLocked && (
+                    <p className="text-[10px] text-(--primary-text-color) italic mt-1 font-bold">
+                      Note: You have selected this plan from the packages
+                      section.
+                    </p>
+                  )}
                 </div>
               </div>
 
