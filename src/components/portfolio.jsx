@@ -42,7 +42,7 @@ const VideoCard = ({ item, isActive, isGrid = false }) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const togglePlay = () => {
-    if (!isActive || !videoRef.current) return;
+    if (!videoRef.current) return;
 
     if (videoRef.current.paused) {
       videoRef.current.play();
@@ -63,14 +63,14 @@ const VideoCard = ({ item, isActive, isGrid = false }) => {
   return (
     <div
       onClick={togglePlay}
-      className={`relative rounded-[15px] overflow-hidden aspect-[9/16] 
+      className={`relative rounded-[15px] overflow-hidden aspect-[9/16]
       transition-all duration-500 border-2 w-full mx-auto cursor-pointer shadow-2xl
       ${
         isGrid
           ? "border-[var(--primary-text-color)] hover:scale-[1.02]"
           : isActive
-            ? "scale-110 lg:scale-[1.15] z-20 border-[var(--primary-text-color)]"
-            : "scale-90 opacity-30 blur-[1px] border-transparent"
+            ? "scale-100 border-[var(--primary-text-color)]"
+            : "opacity-40 border-transparent"
       }`}
     >
       <video
@@ -85,15 +85,13 @@ const VideoCard = ({ item, isActive, isGrid = false }) => {
       {/* Play Button */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div
-          className={`w-12 h-12 md:w-14 md:h-14 bg-[var(--primary-text-color)] 
+          className={`w-12 h-12 md:w-14 md:h-14 bg-[var(--primary-text-color)]
           rounded-full flex items-center justify-center transition-all duration-300
           ${(isGrid || isActive) && !isPlaying ? "opacity-100" : "opacity-0"}`}
         >
           <Play size={24} fill="white" color="white" className="ml-1" />
         </div>
       </div>
-
-      {!isGrid && !isActive && <div className="absolute inset-0 bg-black/40" />}
     </div>
   );
 };
@@ -120,10 +118,10 @@ const PortfolioSection = ({
         />
       </div>
       <div>
-        <h2 className="text-2xl md:text-4xl font-bold uppercase text-white">
+        <h2 className="text-[20px] md:text-[30px] font-bold uppercase tracking-tight leading-none text-white">
           {name}
         </h2>
-        <p className="text-[var(--primary-text-color)] mt-2 text-sm md:text-lg">
+      <p className="text-[var(--primary-text-color)] text-[14px] md:text-[18px] font-normal tracking-wide mt-2">
           {subtitle}
         </p>
       </div>
@@ -136,23 +134,19 @@ const PortfolioSection = ({
       ))}
     </div>
 
-    {/* Mobile Slider */}
+    {/* Mobile Slider (1 by 1) */}
     <div className="lg:hidden relative w-full px-4">
       <Swiper
         modules={[Navigation]}
         spaceBetween={20}
-        slidesPerView={1.2}
-        centeredSlides
-        loop
+        slidesPerView={1}
+        centeredSlides={false}
+        loop={true}
         navigation={{ nextEl: `.${nextBtn}`, prevEl: `.${prevBtn}` }}
-        breakpoints={{
-          640: { slidesPerView: 1.8 },
-          768: { slidesPerView: 2.2 },
-        }}
         className={`${sliderClass} pb-10`}
       >
         {videos.map((item) => (
-          <SwiperSlide key={item.id} className="py-8">
+          <SwiperSlide key={item.id} className="py-6">
             {({ isActive }) => <VideoCard item={item} isActive={isActive} />}
           </SwiperSlide>
         ))}
@@ -181,13 +175,13 @@ const Portfolio = () => {
   return (
     <section
       id="portfolio"
-      className="py-12 md:py-24 text-white min-h-screen flex flex-col items-center overflow-x-hidden"
+      className=" text-white flex flex-col items-center overflow-x-hidden"
     >
       <div className="container mx-auto px-4 flex flex-col items-center">
         <div className="inline-block px-10 py-1.5 border border-[var(--primary-text-color)] rounded-full mb-4">
-          <span className="text-2xl font-black tracking-[2px] text-[var(--text-color)]">
-            Portfolio
-          </span>
+         <span className="text-[24px] font-black tracking-[2px] text-[var(--text-color)]">
+          Portfolio
+         </span>
         </div>
 
         <img
