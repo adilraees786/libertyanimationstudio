@@ -64,7 +64,7 @@ const VideoCard = ({ item, isActive, isGrid = false }) => {
     <div
       onClick={togglePlay}
       className={`relative rounded-[15px] overflow-hidden aspect-[9/16]
-      transition-all duration-500 border-2 w-full mx-auto cursor-pointer shadow-2xl
+      transition-all duration-500 border-2 w-full mx-auto cursor-pointer shadow-[0_5px_10px_rgba(244,104,1,0.35)]
       ${
         isGrid
           ? "border-[var(--primary-text-color)] hover:scale-[1.02]"
@@ -121,7 +121,7 @@ const PortfolioSection = ({
         <h2 className="text-[20px] md:text-[30px] font-bold uppercase tracking-tight leading-none text-white">
           {name}
         </h2>
-      <p className="text-[var(--primary-text-color)] text-[14px] md:text-[18px] font-normal tracking-wide mt-2">
+        <p className="text-[var(--primary-text-color)] text-[14px] md:text-[18px] font-normal tracking-wide mt-2">
           {subtitle}
         </p>
       </div>
@@ -179,9 +179,9 @@ const Portfolio = () => {
     >
       <div className="container mx-auto px-4 flex flex-col items-center">
         <div className="inline-block px-10 py-1.5 border border-[var(--primary-text-color)] rounded-full mb-4">
-         <span className="text-[24px] font-black tracking-[2px] text-[var(--text-color)]">
-          Portfolio
-         </span>
+          <span className="text-[24px] font-black tracking-[2px] text-[var(--text-color)]">
+            Portfolio
+          </span>
         </div>
 
         <img
