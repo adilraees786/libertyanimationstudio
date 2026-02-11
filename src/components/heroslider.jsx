@@ -38,10 +38,9 @@ const HeroSlider = () => {
   useEffect(() => {
     const measure = () => {
       if (trackRef.current) {
-        // We have 4 sets of images. The "single loop" width is Total / 4.
-        // We wrap around when we have scrolled past this width.
+        // We have 3 sets of images. The "single loop" width is Total / 3.
         const totalWidth = trackRef.current.scrollWidth;
-        contentWidthRef.current = totalWidth / 4;
+        contentWidthRef.current = totalWidth / 3;
       }
     };
 
@@ -170,6 +169,7 @@ const HeroSlider = () => {
                 muted
                 loop
                 playsInline
+                preload="metadata"
               />
             </div>
           </div>

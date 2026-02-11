@@ -74,6 +74,7 @@ const VideoSlideContent = ({ item, isActive, isGrid = false }) => {
         className="w-full h-full object-cover"
         loop
         playsInline
+        preload="metadata"
       />
 
       {/* Play Button Overlay */}
