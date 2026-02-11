@@ -1,8 +1,6 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -11,35 +9,41 @@ import { Play, ChevronLeft, ChevronRight } from "lucide-react";
 import PortfolioArrow from "../assets/images/portfolio-arrow.png";
 import ManImage from "../assets/images/man-image.svg";
 import ManImage2 from "../assets/images/man-image-02.svg";
-import portfolioVideo1 from "../assets/videos/vdeo-01.mp4";
-import portfolioVideo2 from "../assets/videos/vdeo-02.mp4";
-import portfolioVideo3 from "../assets/videos/vdeo-03.mp4";
-import portfolioVideo4 from "../assets/videos/vdeo-04.mp4";
-import portfolioVideo5 from "../assets/videos/vdeo-05.mp4";
-import portfolioVideo6 from "../assets/videos/vdeo-06.mp4";
-import portfolioVideo7 from "../assets/videos/vdeo-07.mp4";
-import portfolioVideo8 from "../assets/videos/vdeo-08.mp4";
-// slider 1
-const videoData = [
-  { id: 1, src: portfolioVideo1 },
-  { id: 2, src: portfolioVideo2 },
-  { id: 3, src: portfolioVideo3 },
-  { id: 4, src: portfolioVideo4 },
-];
-// slider 2
-const videoDataslidertwo = [
-  { id: 1, src: portfolioVideo5 },
-  { id: 2, src: portfolioVideo6 },
-  { id: 3, src: portfolioVideo7 },
-  { id: 4, src: portfolioVideo8 },
+
+import video1 from "../assets/videos/vdeo-01.mp4";
+import video2 from "../assets/videos/vdeo-02.mp4";
+import video3 from "../assets/videos/vdeo-03.mp4";
+import video4 from "../assets/videos/vdeo-04.mp4";
+import video5 from "../assets/videos/vdeo-05.mp4";
+import video6 from "../assets/videos/vdeo-06.mp4";
+import video7 from "../assets/videos/vdeo-07.mp4";
+import video8 from "../assets/videos/vdeo-08.mp4";
+
+/* ------------------ Video Data ------------------ */
+
+const videoDataOne = [
+  { id: 1, src: video1 },
+  { id: 2, src: video2 },
+  { id: 3, src: video3 },
+  { id: 4, src: video4 },
 ];
 
-const VideoSlideContent = ({ item, isActive, isGrid = false }) => {
-  const [isPlaying, setIsPlaying] = React.useState(false);
-  const videoRef = React.useRef(null);
+const videoDataTwo = [
+  { id: 1, src: video5 },
+  { id: 2, src: video6 },
+  { id: 3, src: video7 },
+  { id: 4, src: video8 },
+];
 
-  const handleTogglePlay = () => {
-    if (!isActive) return;
+/* ------------------ Video Card ------------------ */
+
+const VideoCard = ({ item, isActive, isGrid = false }) => {
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const togglePlay = () => {
+    if (!isActive || !videoRef.current) return;
+
     if (videoRef.current.paused) {
       videoRef.current.play();
       setIsPlaying(true);
@@ -49,24 +53,25 @@ const VideoSlideContent = ({ item, isActive, isGrid = false }) => {
     }
   };
 
-  // Auto-pause when slide becomes inactive
-  React.useEffect(() => {
-    if (!isActive && isPlaying) {
+  useEffect(() => {
+    if (!isActive && videoRef.current) {
       videoRef.current.pause();
       setIsPlaying(false);
     }
-  }, [isActive, isPlaying]);
+  }, [isActive]);
 
   return (
     <div
-      onClick={handleTogglePlay}
-      className={`relative rounded-[15px] overflow-hidden aspect-9/16 transition-all duration-700 ease-in-out border-2 ${
+      onClick={togglePlay}
+      className={`relative rounded-[15px] overflow-hidden aspect-[9/16] 
+      transition-all duration-500 border-2 w-full mx-auto cursor-pointer shadow-2xl
+      ${
         isGrid
-          ? "border-(--primary-text-color) opacity-100 hover:scale-[1.02]"
+          ? "border-[var(--primary-text-color)] hover:scale-[1.02]"
           : isActive
-            ? "lg:scale-[1.15] scale-110 z-20 border-(--primary-text-color) opacity-100"
-            : "scale-90 opacity-30 border-transparent blur-[1px]"
-      } w-full cursor-pointer group mx-auto shadow-2xl`}
+            ? "scale-110 lg:scale-[1.15] z-20 border-[var(--primary-text-color)]"
+            : "scale-90 opacity-30 blur-[1px] border-transparent"
+      }`}
     >
       <video
         ref={videoRef}
@@ -77,14 +82,12 @@ const VideoSlideContent = ({ item, isActive, isGrid = false }) => {
         preload="metadata"
       />
 
-      {/* Play Button Overlay */}
+      {/* Play Button */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div
-          className={`w-12 h-12 md:w-14 md:h-14 bg-[var(--primary-text-color)] rounded-full flex items-center justify-center transition-all duration-500 shadow-lg ${
-            (isGrid || isActive) && !isPlaying
-              ? "scale-100 opacity-100"
-              : "scale-0 opacity-0"
-          }`}
+          className={`w-12 h-12 md:w-14 md:h-14 bg-[var(--primary-text-color)] 
+          rounded-full flex items-center justify-center transition-all duration-300
+          ${(isGrid || isActive) && !isPlaying ? "opacity-100" : "opacity-0"}`}
         >
           <Play size={24} fill="white" color="white" className="ml-1" />
         </div>
@@ -95,6 +98,85 @@ const VideoSlideContent = ({ item, isActive, isGrid = false }) => {
   );
 };
 
+/* ------------------ Section Component ------------------ */
+
+const PortfolioSection = ({
+  name,
+  image,
+  subtitle,
+  videos,
+  sliderClass,
+  prevBtn,
+  nextBtn,
+}) => (
+  <div className="w-full max-w-[1200px] mb-20 flex flex-col items-center">
+    {/* Header */}
+    <div className="flex items-center gap-4 mb-12 px-4">
+      <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden ring-2 ring-[var(--primary-text-color)] p-0.5">
+        <img
+          src={image}
+          alt={name}
+          className="w-full h-full object-cover rounded-full"
+        />
+      </div>
+      <div>
+        <h2 className="text-2xl md:text-4xl font-bold uppercase text-white">
+          {name}
+        </h2>
+        <p className="text-[var(--primary-text-color)] mt-2 text-sm md:text-lg">
+          {subtitle}
+        </p>
+      </div>
+    </div>
+
+    {/* Desktop Grid */}
+    <div className="hidden lg:grid grid-cols-4 gap-8 px-4">
+      {videos.map((item) => (
+        <VideoCard key={item.id} item={item} isActive isGrid />
+      ))}
+    </div>
+
+    {/* Mobile Slider */}
+    <div className="lg:hidden relative w-full px-4">
+      <Swiper
+        modules={[Navigation]}
+        spaceBetween={20}
+        slidesPerView={1.2}
+        centeredSlides
+        loop
+        navigation={{ nextEl: `.${nextBtn}`, prevEl: `.${prevBtn}` }}
+        breakpoints={{
+          640: { slidesPerView: 1.8 },
+          768: { slidesPerView: 2.2 },
+        }}
+        className={`${sliderClass} pb-10`}
+      >
+        {videos.map((item) => (
+          <SwiperSlide key={item.id} className="py-8">
+            {({ isActive }) => <VideoCard item={item} isActive={isActive} />}
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      <button
+        className={`${prevBtn} absolute left-0 top-1/2 -translate-y-1/2 z-30 w-10 h-10 
+        bg-[var(--primary-text-color)] rounded-full flex items-center justify-center`}
+      >
+        <ChevronLeft size={20} strokeWidth={3} />
+      </button>
+
+      <button
+        className={`${nextBtn} absolute right-0 top-1/2 -translate-y-1/2 z-30 w-10 h-10 
+        bg-[var(--primary-text-color)] rounded-full flex items-center justify-center`}
+      >
+        <ChevronRight size={20} strokeWidth={3} />
+      </button>
+    </div>
+  </div>
+);
+
+/* ------------------ Main Component ------------------ */
+
 const Portfolio = () => {
   return (
     <section
@@ -102,157 +184,37 @@ const Portfolio = () => {
       className="py-12 md:py-24 text-white min-h-screen flex flex-col items-center overflow-x-hidden"
     >
       <div className="container mx-auto px-4 flex flex-col items-center">
-        {/* Portfolio Badge */}
         <div className="inline-block px-10 py-1.5 border border-[var(--primary-text-color)] rounded-full mb-4">
-          <span className="text-[24px] font-black tracking-[2px] text-[var(--text-color)]">
+          <span className="text-2xl font-black tracking-[2px] text-[var(--text-color)]">
             Portfolio
           </span>
         </div>
 
-        {/* Wavy Arrow Graphic */}
-        <div className="mb-4">
-          <img
-            src={PortfolioArrow}
-            alt="arrow decoration"
-            className="h-28 md:h-36 opacity-80"
-          />
-        </div>
+        <img
+          src={PortfolioArrow}
+          alt="arrow decoration"
+          className="h-28 md:h-36 opacity-80 mb-10"
+        />
 
-        {/* --- Section 1: Daniel Iles --- */}
-        <div className="w-full max-w-[1200px] mb-20 flex flex-col items-center">
-          <div className="flex flex-row items-center justify-center gap-4 mb-12 text-left px-4">
-            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden ring-2 ring-(--primary-text-color) p-0.5">
-              <img
-                src={ManImage}
-                alt="Daniel Iles"
-                className="w-full h-full object-cover rounded-full"
-              />
-            </div>
-            <div className="flex flex-col">
-              <h2 className="text-[24px] md:text-[36px] font-bold uppercase tracking-tight leading-none text-white">
-                Daniel Iles
-              </h2>
-              <p className="text-[var(--primary-text-color)] text-[14px] md:text-[18px] font-medium tracking-wide mt-2">
-                829K+ YouTube Subscribers
-              </p>
-            </div>
-          </div>
+        <PortfolioSection
+          name="Daniel Iles"
+          image={ManImage}
+          subtitle="829K+ YouTube Subscribers"
+          videos={videoDataOne}
+          sliderClass="portfolio-swiper-one"
+          prevBtn="swiper-btn-prev-one"
+          nextBtn="swiper-btn-next-one"
+        />
 
-          {/* Desktop Grid for Section 1 */}
-          <div className="hidden lg:grid grid-cols-4 gap-8 px-4">
-            {videoData.map((item) => (
-              <VideoSlideContent
-                key={item.id}
-                item={item}
-                isActive={true}
-                isGrid={true}
-              />
-            ))}
-          </div>
-
-          {/* Mobile/Tablet Slider for Section 1 */}
-          <div className="lg:hidden relative w-full px-4">
-            <Swiper
-              modules={[Navigation]}
-              spaceBetween={20}
-              slidesPerView={1.2}
-              centeredSlides={true}
-              loop={true}
-              navigation={{
-                nextEl: ".swiper-btn-next-one",
-                prevEl: ".swiper-btn-prev-one",
-              }}
-              breakpoints={{
-                640: { slidesPerView: 1.8, spaceBetween: 20 },
-                768: { slidesPerView: 2.2, spaceBetween: 30 },
-              }}
-              className="portfolio-swiper-one w-full pb-10"
-            >
-              {videoData.map((item) => (
-                <SwiperSlide key={item.id} className="py-8">
-                  {({ isActive }) => (
-                    <VideoSlideContent item={item} isActive={isActive} />
-                  )}
-                </SwiperSlide>
-              ))}
-            </Swiper>
-
-            <button className="swiper-btn-prev-one absolute left-[-5px] top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-(--primary-text-color) rounded-full flex items-center justify-center text-white shadow-[0_0_15px_rgba(0,0,0,0.3)] active:scale-95 transition-all">
-              <ChevronLeft size={20} strokeWidth={3} />
-            </button>
-            <button className="swiper-btn-next-one absolute right-[-5px] top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-(--primary-text-color) rounded-full flex items-center justify-center text-white shadow-[0_0_15px_rgba(0,0,0,0.3)] active:scale-95 transition-all">
-              <ChevronRight size={20} strokeWidth={3} />
-            </button>
-          </div>
-        </div>
-
-        {/* --- Section 2: Vijay Singh --- */}
-        <div className="w-full max-w-[1200px] mb-20 flex flex-col items-center">
-          <div className="flex flex-row items-center justify-center gap-4 mb-12 text-left px-4">
-            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden ring-2 ring-(--primary-text-color) p-0.5">
-              <img
-                src={ManImage2}
-                alt="Vijay Singh"
-                className="w-full h-full object-cover rounded-full"
-              />
-            </div>
-            <div className="flex flex-col">
-              <h2 className="text-[24px] md:text-[36px] font-bold uppercase tracking-tight leading-none text-white">
-                Vijay Singh
-              </h2>
-              <p className="text-(--primary-text-color) text-[14px] md:text-[18px] font-medium tracking-wide mt-2">
-                100K+ Instagram Subscribers
-              </p>
-            </div>
-          </div>
-
-          {/* Desktop Grid for Section 2 */}
-          <div className="hidden lg:grid grid-cols-4 gap-8 px-4">
-            {videoDataslidertwo.map((item) => (
-              <VideoSlideContent
-                key={item.id}
-                item={item}
-                isActive={true}
-                isGrid={true}
-              />
-            ))}
-          </div>
-
-          {/* Mobile/Tablet Slider for Section 2 */}
-          <div className="lg:hidden relative w-full px-4">
-            <Swiper
-              modules={[Navigation]}
-              spaceBetween={20}
-              slidesPerView={1.2}
-              centeredSlides={true}
-              loop={true}
-              navigation={{
-                nextEl: ".swiper-btn-next-two",
-                prevEl: ".swiper-btn-prev-two",
-              }}
-              breakpoints={{
-                640: { slidesPerView: 1.8, spaceBetween: 20 },
-                768: { slidesPerView: 2.2, spaceBetween: 30 },
-              }}
-              className="portfolio-swiper-two w-full pb-10"
-            >
-              {videoDataslidertwo.map((item) => (
-                <SwiperSlide key={item.id} className="py-8">
-                  {({ isActive }) => (
-                    <VideoSlideContent item={item} isActive={isActive} />
-                  )}
-                </SwiperSlide>
-              ))}
-            </Swiper>
-
-            <button className="swiper-btn-prev-two absolute left-[-5px] top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-(--primary-text-color) rounded-full flex items-center justify-center text-white shadow-[0_0_15px_rgba(0,0,0,0.3)] active:scale-95 transition-all">
-              <ChevronLeft size={28} strokeWidth={3} />
-            </button>
-            <button className="swiper-btn-next-two absolute right-[-5px] top-1/2 -translate-y-1/2 z-30 w-10 h-10 bg-(--primary-text-color) rounded-full flex items-center justify-center text-white shadow-[0_0_15px_rgba(0,0,0,0.3)] active:scale-95 transition-all">
-              <ChevronRight size={28} strokeWidth={3} />
-            </button>
-          </div>
-        </div>
+        <PortfolioSection
+          name="Vijay Singh"
+          image={ManImage2}
+          subtitle="100K+ Instagram Subscribers"
+          videos={videoDataTwo}
+          sliderClass="portfolio-swiper-two"
+          prevBtn="swiper-btn-prev-two"
+          nextBtn="swiper-btn-next-two"
+        />
       </div>
     </section>
   );
