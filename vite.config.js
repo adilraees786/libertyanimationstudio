@@ -11,7 +11,7 @@ export default defineConfig({
     port: 1008,
     proxy: {
       '/api': {
-        target: 'http://localhost:5000', // External backend port (temporary fallback) or use the same env
+        target: 'https://libertyanimationstudio.com/', // External backend port (temporary fallback) or use the same env
         changeOrigin: true,
       },
     },
