@@ -10,10 +10,8 @@ app.use(cors());
 app.use(express.json());
 
 
-// Root Route
-app.get('/', (req, res) => {
-    res.send('Liberaty Animation Studio Backend is running perfectly!');
-});
+// Serve frontend static files from the 'dist' directory
+app.use(express.static(path.join(__dirname, '../dist')));
 
 // MySQL Connection Pool (Better for Vercel/Serverless)
 const pool = mysql.createPool({
@@ -35,6 +33,11 @@ const transporter = nodemailer.createTransport({
         pass: process.env.EMAIL_PASS
     }
 });
+
+app.get('/api/contact', (req, res) => {
+    res.send('Contact API is working');
+});
+
 
 app.post('/api/contact', async (req, res) => {
     const { fullName, email, phone, social, brandDescription, packageType, challenge } = req.body;
@@ -101,7 +104,13 @@ app.post('/api/contact', async (req, res) => {
     }
 });
 
-const PORT = process.env.PORT || 5000;
+// Catch-all: serve index.html for any other requests (React routing)
+app.use((req, res) => {
+    res.sendFile(path.join(__dirname, '../dist/index.html'));
+});
+
+const PORT = process.env.PORT || 1008;
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(`Server is running at: http://localhost:${PORT}`);
+    console.log(`Frontend and Backend both active on port ${PORT}`);
 });
